@@ -25,3 +25,7 @@ Route::get('/login', function () {
 Route::get('/registrarse', function () {
     return view('/principal/registrarse');
 });
+
+Route::get('/welcome2', function () {
+    return view('welcome2');
+});
