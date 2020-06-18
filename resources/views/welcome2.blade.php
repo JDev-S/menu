@@ -638,6 +638,7 @@
   <script src="assets\js\framework.js"></script>
   <!-- Settings -->
   <script src="assets\js\settings.js"></script>
+@yield('scripts')
 </body>
 
 </html>

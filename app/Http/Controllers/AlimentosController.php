@@ -8,7 +8,8 @@ class AlimentosController extends Controller
 {
       public function alimentos_mostrar()
 	{
-		$alimentos=DB::select('select * from alimentos inner join categoria on alimentos.id_categoria=categoria.id_categoria');
+		$alimentos=DB::select('select alimentos.id_alimento,alimentos.nombre_alimento,alimentos.id_categoria,alimentos.descripcion,alimentos.fotografia_miniatura,alimentos.calorias,alimentos.tiempo_preparacion,alimentos.precio,categoria.nombre_categoria from alimentos inner join categoria on alimentos.id_categoria=categoria.id_categoria');
+          
 		return view('/Administrador/Alimentos/index',compact('alimentos'));
     }
 
