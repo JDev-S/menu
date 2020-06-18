@@ -3,35 +3,46 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
 class AlimentosController extends Controller
 {
-      public function categorias_mostrar()
+      public function alimentos_mostrar()
 	{
-		$categorias=DB::select('select * from categoria');
-		return view('/Administrador/Categoria/index',compact('categorias'));
+		$alimentos=DB::select('select * from alimentos inner join categoria on alimentos.id_categoria=categoria.id_categoria');
+		return view('/Administrador/Alimentos/index',compact('alimentos'));
     }
 
 	public function eliminar(Request $input)
     {
-		$id=$input['id_categoria'];
-		$query=DB::delete("DELETE FROM categoria WHERE id_categoria='$id'");
-		return redirect()->action('CategoriaController@categorias_mostrar')->withInput();
+		$id=$input['id_alimento'];
+		$query=DB::delete("DELETE FROM alimento WHERE id_alimento='$id'");
+		return redirect()->action('AlimentosController@alimentos_mostrar')->withInput();
 	}
     
 	public function insertar(Request $input)
 	{
-        $nombre_categoria = $input['nombre_categoria'];   
-        $query=DB::insert('insert into categoria (id_categoria,nombre_categoria) values ( ?, ?)', [null, $nombre_categoria]);
-        return redirect()->action('CategoriaController@categorias_mostrar')->withInput();
+        $nombre_alimento = $input['nombre_alimento'];
+        $id_categoria = $input['nombre_alimento'];
+        $descripcion = $input['nombre_alimento'];
+        $fotografia_miniatura = $input['nombre_alimento'];
+        $precio = $input['nombre_alimento'];
+        $eliminado = 0;
+        
+        $query=DB::insert('insert into alimento (id_alimento, id_categoria, nombre_alimento, descripcion, fotografia_miniatura, precio, eliminado) values ( ?, ?, ?, ?, ?, ?, ?)', [null, $id_categoria, $nombre_alimento, $descripcion, $fotografia_miniatura, $precio, $eliminado]);
+        return redirect()->action('AlimentosController@alimentos_mostrar')->withInput();
 	}
 
 	public function actualizar(Request $input)
 	{	    
-        $id=$input['id_categoria'];
-        $nombre_categoria = $input['nombre_categoria'];
-        $query=DB::update("update categoria set nombre_categoria='$nombre_categoria' where id_categoria=?",[$id]);
-        return redirect()->action('CategoriaController@categorias_mostrar')->withInput();
+        $id_alimento=$input['id_alimento'];
+        $id_categoria = $input['id_categoria'];
+        $nombre_alimento=$input['nombre_alimento'];
+        $descripcion=$input['descripcion'];
+        $fotografia_miniatura=$input['fotografia_miniatura'];
+        $precio=$input['precio'];
+        $eliminado=$input['eliminado'];
+        
+        $query=DB::update("update alimentos set id_categoria='$id_categoria', nombre_alimento='$nombre_alimento', descripcion='$descripcion', fotografia_miniatura='$fotografia_miniatura', precio='$precio', eliminado='$eliminado' where id_alimento=?",[$id_alimento]);
+        return redirect()->action('AlimentosController@alimentos_mostrar')->withInput();
 	}
-}
 }

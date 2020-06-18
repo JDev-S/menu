@@ -26,6 +26,21 @@ Route::get('/registrarse', function () {
     return view('/principal/registrarse');
 });
 
-Route::get('/welcome2', function () {
-    return view('welcome2');
+Route::get('/Admin_restaurante', function () {
+    return view('/Administrador/index');
 });
+
+Route::get('/detalle_compra', function () {
+    return view('/principal/detalle_compra');
+});
+
+
+/*Administrador alimentos*/
+
+Route::get('/admin_alimentos','AlimentosController@alimentos_mostrar');
+
+Route::post('/admin_alimentos_borrar','AlimentosController@eliminar');
+
+Route::post('/Admin_alimentos_nuevo','AlimentosController@insertar');
+
+Route::post('/Admin_alimentos_editar','AlimentosController@actualizar');
