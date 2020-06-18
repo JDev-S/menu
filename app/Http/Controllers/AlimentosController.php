@@ -20,6 +20,15 @@ class AlimentosController extends Controller
 		return redirect()->action('AlimentosController@alimentos_mostrar')->withInput();
 	}
     
+    
+     public function mostrar_insertar()
+	{
+		
+          
+		return view('/Administrador/Alimentos/insertar');
+    }
+    
+    
 	public function insertar(Request $input)
 	{
         $nombre_alimento = $input['nombre_alimento'];

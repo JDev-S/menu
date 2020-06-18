@@ -82,7 +82,7 @@
           </li>
           <!--<li> <a href="pages\product\productgrid.html">Menu Grid</a>
           </li>-->
-          <li> <a href="pages\product\addproduct.html">Agregar alimento</a>
+          <li> <a href="/agregar_alimento">Agregar alimento</a>
           </li>
           <!--<li> <a href="pages\product\productdetail.html">Product Detail</a>
           </li>-->

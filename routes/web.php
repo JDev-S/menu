@@ -41,6 +41,8 @@ Route::get('/admin_alimentos','AlimentosController@alimentos_mostrar');
 
 Route::post('/admin_alimentos_borrar','AlimentosController@eliminar');
 
+Route::get('/agregar_alimento','AlimentosController@mostrar_insertar');
+
 Route::post('/Admin_alimentos_nuevo','AlimentosController@insertar');
 
 Route::post('/Admin_alimentos_editar','AlimentosController@actualizar');
