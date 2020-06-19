@@ -76,16 +76,13 @@
         <a href="#" class="has-chevron" data-toggle="collapse" data-target="#dashboard" aria-expanded="false" aria-controls="dashboard"> <span><i class="fa fa-archive fs-16"></i>Alimentos </span>
         </a>
         <ul id="dashboard" class="collapse" aria-labelledby="dashboard" data-parent="#side-nav-accordion">
-          <!--<li> <a href="pages\product\productcata.html">Menu Catalogue</a>
-          </li>-->
+
           <li> <a href="/admin_alimentos">Listado de alimentos</a>
           </li>
-          <!--<li> <a href="pages\product\productgrid.html">Menu Grid</a>
-          </li>-->
+
           <li> <a href="/agregar_alimento">Agregar alimento</a>
           </li>
-          <!--<li> <a href="pages\product\productdetail.html">Product Detail</a>
-          </li>-->
+
         </ul>
       </li>
         
@@ -93,16 +90,13 @@
         <a href="#" class="has-chevron" data-toggle="collapse" data-target="#invoice" aria-expanded="false" aria-controls="invoice"> <span><i class="fa fa-archive fs-16"></i>Usuarios </span>
         </a>
         <ul id="invoice" class="collapse" aria-labelledby="invoice" data-parent="#side-nav-accordion">
-          <!--<li> <a href="pages\product\productcata.html">Menu Catalogue</a>
-          </li>-->
+
           <li> <a href="pages\product\productlist.html">Listado de Metodos de usuarios</a>
           </li>
-          <!--<li> <a href="pages\product\productgrid.html">Menu Grid</a>
-          </li>-->
+
           <li> <a href="pages\product\addproduct.html">Agregar usuario</a>
           </li>
-          <!--<li> <a href="pages\product\productdetail.html">Product Detail</a>
-          </li>-->
+
         </ul>
       </li>
         
@@ -110,16 +104,13 @@
         <a href="#" class="has-chevron" data-toggle="collapse" data-target="#basic-elements" aria-expanded="false" aria-controls="basic-elements"> <span><i class="fa fa-archive fs-16"></i>Dirección </span>
         </a>
         <ul id="basic-elements" class="collapse" aria-labelledby="basic-elements" data-parent="#side-nav-accordion">
-          <!--<li> <a href="pages\product\productcata.html">Menu Catalogue</a>
-          </li>-->
+
           <li> <a href="pages\product\productlist.html">Listado de direcciones</a>
           </li>
-          <!--<li> <a href="pages\product\productgrid.html">Menu Grid</a>
-          </li>-->
+
           <li> <a href="pages\product\addproduct.html">Agregar dirección</a>
           </li>
-          <!--<li> <a href="pages\product\productdetail.html">Product Detail</a>
-          </li>-->
+
         </ul>
       </li>
         
@@ -132,10 +123,6 @@
           </li>-->
           <li> <a href="/admin_categoria">Listado de Categorias</a>
           </li>
-          <!--<li> <a href="pages\product\productgrid.html">Menu Grid</a>
-          </li>-->
-          <!--<li> <a href="pages\product\productdetail.html">Product Detail</a>
-          </li>-->
         </ul>
       </li>
         
@@ -147,10 +134,6 @@
           </li>-->
           <li> <a href="/admin_mesa">Listado de Mesas</a>
           </li>
-          <!--<li> <a href="pages\product\productgrid.html">Menu Grid</a>
-          </li>-->
-          <!--<li> <a href="pages\product\productdetail.html">Product Detail</a>
-          </li>-->
         </ul>
       </li>
         
@@ -158,14 +141,10 @@
         <a href="#" class="has-chevron" data-toggle="collapse" data-target="#form-elements" aria-expanded="false" aria-controls="form-elements"> <span><i class="fa fa-archive fs-16"></i>Metodos de pago </span>
         </a>
         <ul id="form-elements" class="collapse" aria-labelledby="form-elements" data-parent="#side-nav-accordion">
-          <!--<li> <a href="pages\product\productcata.html">Menu Catalogue</a>
-          </li>-->
+
           <li> <a href="/admin_metodo_de_pago">Listado de Metodos de pago</a>
           </li>
-          <!--<li> <a href="pages\product\productgrid.html">Menu Grid</a>
-          </li>-->
-          <!--<li> <a href="pages\product\productdetail.html">Product Detail</a>
-          </li>-->
+
         </ul>
       </li>
       <!-- product end -->

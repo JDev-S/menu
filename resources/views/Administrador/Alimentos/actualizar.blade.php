@@ -119,7 +119,7 @@
                     <img src='{{$alimento->fotografia_miniatura}}'>
                   </div>
                 </div>
-                  
+                   
                 <div class="ms-panel-header new">
                   <p class="medium">Disponibles</p>
                   <div>
@@ -129,11 +129,18 @@
                     </label>
                   </div>
                 </div>
-
+                  
+                  
                 <div class="ms-panel-header new">
                   <!--<button class="btn btn-secondary d-block" type="submit">Guardar</button>-->
                   <button class="btn btn-primary d-block" type="submit">Guardar cambios</button>
                 </form>
+                  
+                </div>
+                <div class="ms-panel-header new">
+                  <button class="btn btn-danger" data-toggle="modal" data-target="#modal-5">Imagenes extras </button>
+                  <button class="btn btn-success" data-toggle="modal" data-target="#modal-6">Ingredientes  </button>
+                  
                 </div>
               </div>
             </div>
@@ -143,6 +150,127 @@
       </div>
     </div>
       @endforeach
+      
+                <div class="modal fade" id="modal-5" tabindex="-1" role="dialog" aria-labelledby="modal-5">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+
+                      <div class="modal-header bg-primary">
+                        <h3 class="modal-title has-icon text-white"><i class="flaticon-placeholder"></i> Imágenes extras</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      </div>
+                      
+                      <div class="modal-body">
+                          <button class="btn btn-success" data-toggle="modal" data-target="#modal-7">Agregar  </button>
+                        <div class="ms-panel-body">
+                           <div class="table-responsive">
+                              <table id="data-table-imagenes" class="table w-100 thead-primary"></table>
+                           </div>
+                        </div>
+                      </div>
+
+                      <div class="modal-footer">
+                       
+                        <a href="" class="btn btn-light" data-dismiss="modal">Cancelar</a>
+                        <a  href=""class="btn btn-primary shadow-none" data-dismiss="modal">Guardar</a>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+      
+      
+                <div class="modal fade" id="modal-6" tabindex="-1" role="dialog" aria-labelledby="modal-6">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+
+                      <div class="modal-header bg-primary">
+                        <h3 class="modal-title has-icon text-white"><i class="flaticon-placeholder"></i>Ingredientes</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      </div>
+
+                      <div class="modal-body">
+                        <p>Lorem ipsum is simply Dummy text of the printing and typing industry. Lorem ipsum has been the industry's standard for dummy text.</p>
+                      </div>
+
+                      <div class="modal-footer">
+                        <div class="modal-notice">
+                          <a href="#" class="btn-link"> Learn More </a>
+                        </div>
+                        <button type="button" class="btn btn-light" data-dismiss="modal">Don't Allow</button>
+                        <button type="button" class="btn btn-primary shadow-none" data-dismiss="modal">Allow</button>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+      
+      
+      <div class="modal fade" id="modal-7" tabindex="-1" role="dialog" aria-labelledby="modal-7">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+
+                      <div class="modal-header bg-primary">
+                        <h3 class="modal-title has-icon text-white"><i class="flaticon-placeholder"></i>Ingredientes</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      </div>
+
+                      <div class="modal-body">
+                        <p>Lorem ipsum is simply Dummy text of the printing and typing industry. Lorem ipsum has been the industry's standard for dummy text.</p>
+                      </div>
+
+                      <div class="modal-footer">
+                        <div class="modal-notice">
+                          <a href="#" class="btn-link"> Learn More </a>
+                        </div>
+                        <button type="button" class="btn btn-light" data-dismiss="modal">Don't Allow</button>
+                        <button type="button" class="btn btn-primary shadow-none" data-dismiss="modal">Allow</button>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+      
+      
   </main>
 
+@section('scripts')
+
+<script type="text/javascript">
+(function($) {
+  'use strict';
+
+  var datos = JSON.parse('<?= json_encode($imagenes) ?>');
+    
+      var arr = [];
+      
+      datos.forEach(objeto=>{
+          var tmp = [];
+      tmp.push(
+         
+          
+         " <img src='"+objeto.imagen_muestra+"' style='width:50px; height:30px;'>",
+          objeto.nombre_alimento,
+           '<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-id="'+objeto.id_imagen_muestra+'" data-id2="'+objeto.id_alimento+'" data-nombre="'+objeto.nombre_alimento+'" >Eliminar</button>'
+
+          
+      );
+          
+          arr.push(tmp);
+          console.log(arr);
+          
+  });
+  var tableTwo = $('#data-table-imagenes').DataTable( {
+    data: arr,
+    columns: [
+     
+    { title: "Foto" },
+        { title: "Platillo" },
+
+      { title: "Acciones" }
+    ],
+  });
+})(jQuery);
+</script>
+@stop
 @stop

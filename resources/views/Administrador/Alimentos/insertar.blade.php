@@ -89,7 +89,7 @@
                   <div class="col-md-12 mb-3">
                     <label for="validationCustom12">Imagen del alimento</label>
                     <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="validatedCustomFile" name="fotografia_miniatura">
+                      <input type="file" class="custom-file-input" id="fotografia_miniatura" name="fotografia_miniatura">
                       <label class="custom-file-label" for="validatedCustomFile">Elige la imagen</label>
                       <div class="invalid-feedback">Example invalid custom file feedback</div>
                     </div>
@@ -108,37 +108,36 @@
             <div class="col-md-12">
               <div class="ms-panel">
                 <div class="ms-panel-header">
-                  <h6>Producto </h6>
+                  <h6>Alimento </h6>
                 </div>
                 <div class="ms-panel-body">
+                    <h6>Imagen principal </h6>
                   <div id="imagesSlider" class="ms-image-slider carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <img class="d-block w-100" src="..\..\assets\img\foodtech\add-product-1.jpg" alt="First slide">
-                      </div>
-                      <div class="carousel-item">
-                        <img class="d-block w-100" src="..\..\assets\img\foodtech\add-product-2.jpg" alt="Second slide">
-                      </div>
-                      <div class="carousel-item">
-                        <img class="d-block w-100" src="..\..\assets\img\foodtech\add-product-3.jpg" alt="Third slide">
-                      </div>
-                    </div>
-                    <ol class="carousel-indicators">
-                      <li data-target="#imagesSlider" data-slide-to="0" class="active"> <img class="d-block w-100" src="..\..\assets\img\foodtech\add-product-1.jpg" alt="First slide"></li>
-                      <li data-target="#imagesSlider" data-slide-to="1"><img class="d-block w-100" src="..\..\assets\img\foodtech\add-product-2.jpg" alt="Second slide"></li>
-                      <li data-target="#imagesSlider" data-slide-to="2"><img class="d-block w-100" src="..\..\assets\img\foodtech\add-product-3.jpg" alt="Third slide"></li>
-                    </ol>
+                    <div id="preview"></div>
                   </div>
                 </div>
-                  
+                    
                 <div class="col-md-12 mb-3">
                     <label for="validationCustom12">Imagenes </label>
                     <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="validatedCustomFile" name="miarchivo[]" multiple='multiple'>
+                      <input type="file" class="custom-file-input" id="fileInput" name="miarchivo[]" multiple='multiple' onchange="GetFileInfo ()">
                       <label class="custom-file-label" for="validatedCustomFile">Elige las imagenes</label>
                       <div class="invalid-feedback">Example invalid custom file feedback</div>
                     </div>
                   </div>
+                  <h6>Imagenes extras </h6>
+                <div class="ms-panel-body">
+                  <div id="imagesSlider" class="ms-image-slider carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                     <div id="visorArchivo"></div>
+                    </div>
+                    <ol class="carousel-indicators"  id="miniatura">
+                    
+                    </ol>
+                  </div>
+                </div>
+                  
+
                   
                 <div class="ms-panel-header new">
                   <p class="medium">Disponibles</p>
@@ -163,5 +162,77 @@
       </div>
     </div>
   </main>
+
+@section('scripts')
+
+<script type="text/javascript">
+document.getElementById("fotografia_miniatura").onchange = function(e) {
+  // Creamos el objeto de la clase FileReader
+  let reader = new FileReader();
+  
+    alert(e.target.files.length);
+  // Leemos el archivo subido y se lo pasamos a nuestro fileReader
+  reader.readAsDataURL(e.target.files[0]);
+
+  // Le decimos que cuando este listo ejecute el código interno
+  reader.onload = function(){
+    let preview = document.getElementById('preview'),
+            image = document.createElement('img');
+
+    image.src = reader.result;
+
+    preview.innerHTML = '';
+    preview.append(image);
+  };
+}
+
+</script>
+
+
+<script type="text/javascript">
+function GetFileInfo() {
+var fileInput = document.getElementById("fileInput");
+var archivoRuta = fileInput.value;
+var extPermitidas = /(.PNG|.png|.jpg|.JPG|.JPEG|.jpeg)$/i;
+var message = "";
+var message2="";
+
+ 
+if (fileInput.files.length ) {
+document.getElementById('visorArchivo').innerHTML='';
+document.getElementById('miniatura').innerHTML='';
+              
+            for (let i=0; i < fileInput.files.length;i++) {
+              let visor = new FileReader();
+              visor.onload = function(e) {
+                  
+              if(i==0)
+              {
+                message='<div class="carousel-item active">'+
+                '<img class="d-block w-100" src="' + e.target.result + '" alt="'+i+' slide">'+
+                '</div>';
+                  
+                 message2='<li data-target="#imagesSlider" data-slide-to="'+i+'" class="active"> <img class="d-block w-100" src="' +e.target.result + '" alt="'+i+' slide"></li>';
+                
+               }
+                else
+                {
+                    message+='<div class="carousel-item ">'+
+                    '<img class="d-block w-100" src="' + e.target.result+'" alt="'+i+' slide">'+
+                    '</div>';  
+                    
+                    message2+='<li data-target="#imagesSlider" data-slide-to="'+i+'"><img class="d-block w-100" src="'+e.target.result+'" alt="'+i+' slide"></li>';
+                }
+                  
+                document.getElementById('visorArchivo').innerHTML=message;
+                document.getElementById('miniatura').innerHTML=message2; 
+              };
+             
+              visor.readAsDataURL(fileInput.files[i]);
+            }
+          }
+}
+</script>
+@stop
 
 @stop
