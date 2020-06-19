@@ -43,6 +43,55 @@ Route::post('/admin_alimentos_borrar','AlimentosController@eliminar');
 
 Route::get('/agregar_alimento','AlimentosController@mostrar_insertar');
 
-Route::post('/Admin_alimentos_nuevo','AlimentosController@insertar');
+Route::post('/Admin_alimentos_nuevo','AlimentosController@insertar')->name('Admin_alimentos_nuevo');
+//Route::post('/Admin_alimentos_nuevo','AlimentosController@insertar');
 
-Route::post('/Admin_alimentos_editar','AlimentosController@actualizar');
+Route::get('/actualizar_alimento','AlimentosController@mostrar_actualizar');
+Route::post('/Admin_alimentos_editar','AlimentosController@actualizar')->name('Admin_alimentos_editar');
+
+/*Administrador categoria*/
+Route::get('/admin_categoria','CategoriaController@categorias_mostrar');
+Route::post('/admin_categoria_borrar','CategoriaController@eliminar');
+Route::post('/Admin_categoria_nuevo','CategoriaController@insertar');
+Route::post('/Admin_categoria_editar','CategoriaController@actualizar');
+
+/*Administrador detalle venta*/
+
+Route::get('/admin_detalle_venta','Detalle_ventaController@detalle_ventas_mostrar');
+
+Route::post('/admin_detalle_venta_eliminar','Detalle_ventaController@eliminar');
+
+Route::post('/Admin_detalle_venta_insertar','Detalle_ventaController@insertar');
+
+Route::post('/Admin_detalle_venta_actualizar','Detalle_ventaController@actualizar');
+
+/*Administrador usuario*/
+
+Route::get('/admin_usuario','UsuarioController@usuarios_mostrar');
+
+Route::post('/admin_usuario_eliminar','UsuarioController@eliminar');
+
+Route::post('/Admin_usuario_insertar','UsuarioController@insertar');
+
+Route::post('/Admin_usuario_actualizar','UsuarioController@actualizar');
+
+/*Administrador Metodo de pago*/
+
+Route::get('/admin_metodo_de_pago','Metodo_pagoController@metodo_pago_mostrar');
+
+Route::post('/admin_metodo_de_pago_eliminar','Metodo_pagoController@eliminar');
+
+Route::post('/Admin_metodo_de_pago_insertar','Metodo_pagoController@insertar');
+
+Route::post('/Admin_metodo_de_pago_actualizar','Metodo_pagoController@actualizar');
+
+/*Administrador mesa*/
+
+Route::get('/admin_mesa','MesaController@mesa_mostrar');
+
+Route::post('/admin_mesa_eliminar','MesaController@eliminar');
+
+Route::post('/Admin_mesa_insertar','MesaController@insertar');
+
+Route::post('/Admin_mesa_actualizar','MesaController@actualizar');
+

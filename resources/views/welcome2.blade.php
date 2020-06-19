@@ -130,7 +130,7 @@
         <ul id="customer" class="collapse" aria-labelledby="customer" data-parent="#side-nav-accordion">
          <!--<li> <a href="pages\product\productcata.html">Menu Catalogue</a>
           </li>-->
-          <li> <a href="pages\product\productlist.html">Listado de Categorias</a>
+          <li> <a href="/admin_categoria">Listado de Categorias</a>
           </li>
           <!--<li> <a href="pages\product\productgrid.html">Menu Grid</a>
           </li>-->
@@ -164,7 +164,7 @@
         <ul id="form-elements" class="collapse" aria-labelledby="form-elements" data-parent="#side-nav-accordion">
           <!--<li> <a href="pages\product\productcata.html">Menu Catalogue</a>
           </li>-->
-          <li> <a href="pages\product\productlist.html">Listado de Metodos de pago</a>
+          <li> <a href="/admin_metodo_de_pago">Listado de Metodos de pago</a>
           </li>
           <!--<li> <a href="pages\product\productgrid.html">Menu Grid</a>
           </li>-->

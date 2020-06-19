@@ -71,10 +71,12 @@
           " <img src='"+objeto.fotografia_miniatura+"' style='width:50px; height:30px;'>"+objeto.nombre_alimento,
           //objeto.descripcion,
           objeto.nombre_categoria,
-          objeto.calorias,
-          objeto.tiempo_preparacion,
+          objeto.calorias+" Cal",
+          objeto.tiempo_preparacion+"min",
           "$ "+objeto.precio,
-           '<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-id="'+objeto.id_alimento+'" data-nombre="'+objeto.nombre_alimento+'">Eliminar</button>'
+           '<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-id="'+objeto.id_alimento+'" data-nombre="'+objeto.nombre_alimento+'">Eliminar</button>'+
+          '<a href="/actualizar_alimento?alimento='+objeto.id_alimento+'" class="btn btn-primary">Actualizar</a>'
+          
            //objeto.id_alimento,
           //objeto.id_categoria
           
