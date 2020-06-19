@@ -134,8 +134,6 @@
           </li>
           <!--<li> <a href="pages\product\productgrid.html">Menu Grid</a>
           </li>-->
-          <li> <a href="pages\product\addproduct.html">Agregar Categoria</a>
-          </li>
           <!--<li> <a href="pages\product\productdetail.html">Product Detail</a>
           </li>-->
         </ul>
@@ -147,12 +145,10 @@
         <ul id="advanced-elements" class="collapse" aria-labelledby="advanced-elements" data-parent="#side-nav-accordion">
           <!--<li> <a href="pages\product\productcata.html">Menu Catalogue</a>
           </li>-->
-          <li> <a href="pages\product\productlist.html">Listado de Mesas</a>
+          <li> <a href="/admin_mesa">Listado de Mesas</a>
           </li>
           <!--<li> <a href="pages\product\productgrid.html">Menu Grid</a>
           </li>-->
-          <li> <a href="pages\product\addproduct.html">Agregar mesas</a>
-          </li>
           <!--<li> <a href="pages\product\productdetail.html">Product Detail</a>
           </li>-->
         </ul>
@@ -168,8 +164,6 @@
           </li>
           <!--<li> <a href="pages\product\productgrid.html">Menu Grid</a>
           </li>-->
-          <li> <a href="pages\product\addproduct.html">Agregar metodo de pago</a>
-          </li>
           <!--<li> <a href="pages\product\productdetail.html">Product Detail</a>
           </li>-->
         </ul>
