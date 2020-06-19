@@ -18,6 +18,7 @@
             <div class="ms-panel-header">
               <h6>Listado de mesas</h6>
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#insertModal">Agregar</button>
+               
             </div>
             <div class="ms-panel-body">
               <div class="table-responsive">
@@ -169,6 +170,7 @@ modal.find('#mesa').val(mesa)
 <script type="text/javascript">
 (function($) {
   'use strict';
+  var tableTwo;
 
   var datos = JSON.parse('<?= json_encode($mesas) ?>');
     
@@ -198,7 +200,7 @@ modal.find('#mesa').val(mesa)
           console.log(arr);
           
   });
-  var tableTwo = $('#data-table-prueba').DataTable( {
+   tableTwo= $('#data-table-prueba').DataTable( {
     data: arr,
     columns: [
      
@@ -211,7 +213,11 @@ modal.find('#mesa').val(mesa)
       { title: "Acciones" }
     ],
   });
+    
+ 
 })(jQuery);
+
+     
 </script>
 
 

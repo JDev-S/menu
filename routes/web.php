@@ -97,7 +97,7 @@ Route::post('/Admin_mesa_actualizar','MesaController@actualizar');
 
 /*Administrador alimento- ingrediente*/
 
-Route::get('/admin_ingrediente_alimento/{alimento?}','Ingrediente_alimentoController@ingredientes_auto_mostrar');
+Route::get('/admin_ingrediente_alimento/{alimento?}','Ingrediente_alimentoController@ingredientes');
 
 Route::post('/admin_ingrediente_alimento_eliminar','Ingrediente_alimentoController@eliminar');
 
@@ -105,7 +105,7 @@ Route::post('/Admin_ingrediente_alimento_insertar','Ingrediente_alimentoControll
 
 /*Administrador imagenes de muestra*/
 
-Route::get('/admin_imagenes_muestra/{alimento?}','Imagenes_muestraController@ingredientes_auto_mostrar');
+Route::get('/admin_imagenes_muestra/{alimento?}','Imagenes_muestraController@imagenes_de_muestra_mostrar');
 
 Route::post('/admin_imagenes_muestra_eliminar','Imagenes_muestraController@eliminar');
 

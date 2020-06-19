@@ -138,7 +138,7 @@
                   
                 </div>
                 <div class="ms-panel-header new">
-                  <button class="btn btn-danger" data-toggle="modal" data-target="#modal-5">Imagenes extras </button>
+                  <button class="btn btn-danger" data-toggle="modal" id="extra" name="extra" data-target="#modal-5">Imagenes extras </button>
                   <button class="btn btn-success" data-toggle="modal" data-target="#modal-6">Ingredientes  </button>
                   
                 </div>
@@ -162,6 +162,8 @@
                       
                       <div class="modal-body">
                           <button class="btn btn-success" data-toggle="modal" data-target="#modal-7">Agregar  </button>
+                           <button type="button" class="btn btn-success" id="button" name="button" onclick="">Borrar seleccionado</button>
+                          <button type="obtener" class="btn btn-success" id="obtener" name="button" onclick="">obtener info seleccionado</button>
                         <div class="ms-panel-body">
                            <div class="table-responsive">
                               <table id="data-table-imagenes" class="table w-100 thead-primary"></table>
@@ -171,7 +173,7 @@
 
                       <div class="modal-footer">
                        
-                        <a href="" class="btn btn-light" data-dismiss="modal">Cancelar</a>
+                        <a href="#" class="btn btn-light" id="tableDestroy" name="tableDestroy" data-dismiss="modal">Cancelar</a>
                         <a  href=""class="btn btn-primary shadow-none" data-dismiss="modal">Guardar</a>
                       </div>
 
@@ -180,7 +182,7 @@
                 </div>
       
       
-                <div class="modal fade" id="modal-6" tabindex="-1" role="dialog" aria-labelledby="modal-6">
+                <!--<div class="modal fade" id="modal-6" tabindex="-1" role="dialog" aria-labelledby="modal-6">
                   <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
 
@@ -203,7 +205,7 @@
 
                     </div>
                   </div>
-                </div>
+                </div>-->
       
       
       <div class="modal fade" id="modal-7" tabindex="-1" role="dialog" aria-labelledby="modal-7">
@@ -237,8 +239,32 @@
 @section('scripts')
 
 <script type="text/javascript">
+    
+    
+    
+    $("#extra").on('click',function(){
+        var datatable;
+        //alert("Extra");
+    });
+    
+    var datatable=function(){
+        var table = $('#data-table-imagenes').DataTable({
+            "ajax":{
+                type:"GET",
+                url: "admin_imagenes_muestra/5",
+                dataType:"json", 
+            },
+            "columns":[
+                {data:"id_imagen"},
+                {data:"id_alimento"},
+                {data:"nombre_alimento"},
+            ]
+        });
+    }
+   /* 
 (function($) {
   'use strict';
+
 
   var datos = JSON.parse('<?= json_encode($imagenes) ?>');
     
@@ -247,29 +273,58 @@
       datos.forEach(objeto=>{
           var tmp = [];
       tmp.push(
-         
-          
          " <img src='"+objeto.imagen_muestra+"' style='width:50px; height:30px;'>",
           objeto.nombre_alimento,
            '<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-id="'+objeto.id_imagen_muestra+'" data-id2="'+objeto.id_alimento+'" data-nombre="'+objeto.nombre_alimento+'" >Eliminar</button>'
-
-          
       );
-          
           arr.push(tmp);
           console.log(arr);
           
   });
-  var tableTwo = $('#data-table-imagenes').DataTable( {
+   tableTwo = $('#data-table-imagenes').DataTable( {
     data: arr,
     columns: [
      
-    { title: "Foto" },
+        { title: "Foto" },
         { title: "Platillo" },
-
-      { title: "Acciones" }
+        { title: "Acciones" }
+        
     ],
+
   });
+    
+    $("#data-table-imagenes").on('click', '.btn-info', function () { $(this).parent().parent().remove(); }); 
+    
+    
+   /* $('#data-table-imagenes tbody').on( 'click', 'tr', function () {
+        if ( $(this).hasClass('selected') ) {
+            $(this).removeClass('selected');
+        }
+        else {
+            tableTwo.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+        }
+    } );*/
+ 
+    /*$('#button').click( function () {
+        tableTwo.row('.selected').remove().draw( false );
+    } );*/
+ 
+    
+
+    /*tableTwo = $('#data-table-imagenes').DataTable();
+    $('#tableDestroy').on( 'click', function () {
+        tableTwo.draw();
+        
+    } );*/
+    
+    /*$('#obtener').click(function() { 
+     for (var i = 0; i < tableTwo.rows('.selected').data().length; i++) { 
+     console.log(tableTwo.rows('.selected').data()[i].nombre_alimento); 
+    } 
+});
+    
+      
 })(jQuery);
 </script>
 @stop
