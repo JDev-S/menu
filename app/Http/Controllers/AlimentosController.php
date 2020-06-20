@@ -76,9 +76,9 @@ class AlimentosController extends Controller
         $id=$_GET['alimento'];
         $alimentos=DB::select("select * from alimentos inner join categoria on alimentos.id_categoria=categoria.id_categoria where alimentos.id_alimento=$id");
           
-       $imagenes=DB::select("select imagenes_de_muestra.id_imagen_muestra, alimentos.id_alimento, imagenes_de_muestra.imagen_muestra,alimentos.nombre_alimento from imagenes_de_muestra inner join alimentos on alimentos.id_alimento=imagenes_de_muestra.id_alimento where alimentos.id_alimento =$id");
+       
 
-		return view('/Administrador/Alimentos/actualizar',compact('alimentos','imagenes'));
+		return view('/Administrador/Alimentos/actualizar',compact('alimentos'));
     }
     
 	public function actualizar(Request $input)

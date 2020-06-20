@@ -44,7 +44,7 @@ Route::post('/admin_alimentos_borrar','AlimentosController@eliminar');
 Route::get('/agregar_alimento','AlimentosController@mostrar_insertar');
 
 Route::post('/Admin_alimentos_nuevo','AlimentosController@insertar')->name('Admin_alimentos_nuevo');
-//Route::post('/Admin_alimentos_nuevo','AlimentosController@insertar');
+
 
 Route::get('/actualizar_alimento','AlimentosController@mostrar_actualizar');
 Route::post('/Admin_alimentos_editar','AlimentosController@actualizar')->name('Admin_alimentos_editar');
@@ -71,8 +71,10 @@ Route::get('/admin_usuario','UsuarioController@usuarios_mostrar');
 
 Route::post('/admin_usuario_eliminar','UsuarioController@eliminar');
 
+Route::get('/agregar_alimento','AlimentosController@mostrar_insertar');
 Route::post('/Admin_usuario_insertar','UsuarioController@insertar');
 
+Route::get('/actualizar_usuario','UsuarioController@mostrar_actualizar');
 Route::post('/Admin_usuario_actualizar','UsuarioController@actualizar');
 
 /*Administrador Metodo de pago*/
@@ -107,7 +109,8 @@ Route::post('/Admin_ingrediente_alimento_insertar','Ingrediente_alimentoControll
 
 Route::get('/admin_imagenes_muestra/{alimento?}','Imagenes_muestraController@imagenes_de_muestra_mostrar');
 
-Route::post('/admin_imagenes_muestra_eliminar','Imagenes_muestraController@eliminar');
+Route::post('/admin_imagenes_muestra_eliminar','Imagenes_muestraController@eliminar')->name('admin_imagenes_muestra_eliminar');
 
-Route::post('/Admin_imagenes_muestra_insertar','Imagenes_muestraController@insertar');
+Route::post('/Admin_imagenes_muestra_insertar','Imagenes_muestraController@insertar')->name('Admin_imagenes_muestra_insertar');
+
 

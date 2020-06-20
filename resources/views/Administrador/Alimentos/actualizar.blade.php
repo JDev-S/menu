@@ -1,6 +1,9 @@
 @extends('welcome2')
 @section('contenido')
 
+@section('metas')
+<meta name="csrf-token" content="{{ csrf_token() }}">
+@stop
   <main class="body-content">
 @foreach($alimentos as $alimento)
     <!-- Body Content Wrapper -->
@@ -161,171 +164,249 @@
                       </div>
                       
                       <div class="modal-body">
-                          <button class="btn btn-success" data-toggle="modal" data-target="#modal-7">Agregar  </button>
-                           <button type="button" class="btn btn-success" id="button" name="button" onclick="">Borrar seleccionado</button>
-                          <button type="obtener" class="btn btn-success" id="obtener" name="button" onclick="">obtener info seleccionado</button>
+                          <button class="btn btn-success" data-toggle="modal" data-target="#insertModal">Agregar  </button>
                         <div class="ms-panel-body">
                            <div class="table-responsive">
-                              <table id="data-table-imagenes" class="table w-100 thead-primary"></table>
+                              <table id="data-table-imagenes" class="table w-100 thead-primary">
+                                  <thead> 
+                                    <td style="color:#ffffff">Imagen</td>
+                                    <td style="color:#ffffff">Nombre alimento</td>
+                                    <td style="color:#ffffff">Acciones</td>
+                                    <!--<td style="color:#ffffff">Acciones2</td>-->
+                                  </thead>
+                               </table>
                            </div>
                         </div>
                       </div>
 
                       <div class="modal-footer">
-                       
-                        <a href="#" class="btn btn-light" id="tableDestroy" name="tableDestroy" data-dismiss="modal">Cancelar</a>
-                        <a  href=""class="btn btn-primary shadow-none" data-dismiss="modal">Guardar</a>
+                        <a  href=""class="btn btn-primary shadow-none" data-dismiss="modal">Cancelar</a>
                       </div>
 
                     </div>
                   </div>
                 </div>
+    
       
       
-                <!--<div class="modal fade" id="modal-6" tabindex="-1" role="dialog" aria-labelledby="modal-6">
-                  <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-
-                      <div class="modal-header bg-primary">
-                        <h3 class="modal-title has-icon text-white"><i class="flaticon-placeholder"></i>Ingredientes</h3>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      </div>
-
-                      <div class="modal-body">
-                        <p>Lorem ipsum is simply Dummy text of the printing and typing industry. Lorem ipsum has been the industry's standard for dummy text.</p>
-                      </div>
-
-                      <div class="modal-footer">
-                        <div class="modal-notice">
-                          <a href="#" class="btn-link"> Learn More </a>
-                        </div>
-                        <button type="button" class="btn btn-light" data-dismiss="modal">Don't Allow</button>
-                        <button type="button" class="btn btn-primary shadow-none" data-dismiss="modal">Allow</button>
-                      </div>
-
-                    </div>
-                  </div>
-                </div>-->
-      
-      
-      <div class="modal fade" id="modal-7" tabindex="-1" role="dialog" aria-labelledby="modal-7">
-                  <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-
-                      <div class="modal-header bg-primary">
-                        <h3 class="modal-title has-icon text-white"><i class="flaticon-placeholder"></i>Ingredientes</h3>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      </div>
-
-                      <div class="modal-body">
-                        <p>Lorem ipsum is simply Dummy text of the printing and typing industry. Lorem ipsum has been the industry's standard for dummy text.</p>
-                      </div>
-
-                      <div class="modal-footer">
-                        <div class="modal-notice">
-                          <a href="#" class="btn-link"> Learn More </a>
-                        </div>
-                        <button type="button" class="btn btn-light" data-dismiss="modal">Don't Allow</button>
-                        <button type="button" class="btn btn-primary shadow-none" data-dismiss="modal">Allow</button>
-                      </div>
-
-                    </div>
-                  </div>
+<!-- model insertar-->
+<div class="modal fade" id="insertModal" tabindex="-1" role="dialog"  aria-labelledby="insertModalLabel" aria-hidden="true">
+ <div class="modal-dialog" role="document">
+   <div class="modal-content">
+     <div class="modal-header">
+       <h5 class="modal-title" id="insertModalLabel">Agregar imágenes extra</h5>
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+     </div>
+     <div class="modal-body">
+         
+        <div class="col-md-12 mb-3">
+          <label for="validationCustom12">Imagenes </label>
+                <div class="custom-file">
+                <input type="file" class="custom-file-input" id="inpFile" name="inpFile" multiple="multiple">
+          <label class="custom-file-label" for="validatedCustomFile">Elige las imagenes</label>
+                        <div class="invalid-feedback">Example invalid custom file feedback</div>
                 </div>
+        </div>
+         
+        <h6>Imagenes extras </h6>
+        <div class="ms-panel-body">
+            <div id="imagesSlider" class="ms-image-slider carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div id="visorArchivo"></div>
+                    </div>
+                         <ol class="carousel-indicators"  id="miniatura">
+                    
+                         </ol>
+             </div>
+         </div>
+         
+         <div class="modal-footer">
+       <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick="ingresar()" >Ingresar</button>
+        
+       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+       </div>
       
-      
-  </main>
+     </div>
+   </div>
+ </div>
+</div>
+  
+
+</main>
+
+<!--model eliminar -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+ <div class="modal-dialog" role="document">
+   <div class="modal-content">
+     <div class="modal-header">
+       <h5 class="modal-title" id="deleteModalLabel">Eliminar categoria</h5>
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+     </div>
+     <div class="modal-body">
+         <div class="form-group">
+           <label for="recipient-name" class="col-form-label">¿Seguro que desea eliminar el registro?</label>
+         </div>
+        <button type="button"  class="btn btn-secondary" onclick="eliminar()" >Sí</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+     </div>
+     </div>
+   </div>
+ </div>
+</div>
 
 @section('scripts')
 
 <script type="text/javascript">
+    /*DECLARACION DE VARIABLES GLOBALES*/
+    var tabla;
+    var id_eliminar="";
+    var datos_datatable;
     
-    
-    
+    /*FUNCION QUE EJECUTA LA FUNCION DATATABLE AL DAR CLIC EN BOTON IMAGENES EXTRA*/
     $("#extra").on('click',function(){
-        var datatable;
-        //alert("Extra");
+        datatable();
     });
     
-    var datatable=function(){
-        var table = $('#data-table-imagenes').DataTable({
-            "ajax":{
-                type:"GET",
-                url: "admin_imagenes_muestra/5",
-                dataType:"json", 
-            },
-            "columns":[
-                {data:"id_imagen"},
-                {data:"id_alimento"},
-                {data:"nombre_alimento"},
-            ]
+    /*FUNCION QUE CREA DATATABLE CON DATOS DEL SERVIDOR*/
+     function datatable(){
+         var arr=[];
+         var id_alimento = $("#id_alimento").val();
+         var url="admin_imagenes_muestra/"+id_alimento;
+         $.ajax({
+                method:"GET",
+                url: url,
+                dataType: "json",           
+                success: function(data){
+                    var datos = JSON.parse(data);
+                    datos.forEach(objeto=>{
+                        var tmp = [];
+                        tmp.push(
+                            "<img src='"+objeto.imagen_muestra+"' style='width:50px; height:30px;'>",
+                            objeto.nombre_alimento,
+                            '<button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-id="'+objeto.id_imagen_muestra+'" data-nombre="'+objeto.nombre_alimento+'">Eliminar</button>'
+                        );
+                        arr.push(tmp);
+                        console.log(arr);
+                    }); 
+                    tabla = $('#data-table-imagenes').DataTable({
+                        destroy:true,
+                        data:arr,
+                        columns:[
+                            {tittle:"Imagen"},
+                            {tittle:"Nombre aliemnto"},
+                            //{defaultContent:'<button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-//id="'+objeto.id_imagen_muestra+'" data-nombre="'+objeto.nombre_alimento+'">Eliminar</button>'}
+                            {tittle:"Accion"},
+                            //{defaultContent:'<button class="eliminar">Eliminar</button>'}
+                        ],
+                    });  
+                }
+            });
+     }
+    
+    /*FUNCION PARA OBTENER VALOR DE FILA SELECCIONADA CON EL BOTÓN Y ELIMINARLA*/
+    $('#data-table-imagenes').on('click',"button.btn", function(){
+        //alert("hola");
+        var data = tabla.row($(this).parents("tr")).data(); //RECUPERA VALOR DE FILA DE DATATABLE
+        datos_datatable = $(this).parent().parent(); //REMUEVE FILA DE DATATABLE 
+    });
+    
+    /*FUNCION QUE SE EJECUTA AL ABRIR EL MODAL. RENOMBRA ELEMENTOS DEL MODAL*/
+        $('#deleteModal').on('show.bs.modal', function (event) {
+             var button = $(event.relatedTarget);
+             var id = button.data('id');
+             var nombre=button.data('nombre');
+             id_eliminar=id;
+             var modal = $(this);
+             modal.find('.col-form-label').text('¿Esta seguro que desea eliminar la foto del alimento: ' +nombre+'?');
+        });
+    
+    
+    /*ELIMINAR DE LA BASE DE DATOS EL REGISTRO SELECCCIONADO*/
+    function eliminar(){
+        var token = '{{csrf_token()}}';
+        var data={id_imagen_muestra:id_eliminar,_token:token};
+        
+        $.ajax({
+            type: "POST",
+            url: "/admin_imagenes_muestra_eliminar",
+            data: data,
+            success: function (msg) {
+                datos_datatable.remove();
+                $('#deleteModal').modal('hide');  
+            }
         });
     }
-   /* 
-(function($) {
-  'use strict';
+    
+    /*MOSTRAR IMAGENES DEL BOTON DE AGREGAR*/
+    function GetFileInfo() {
+                            var fileInput = document.getElementById("inpFile");
+                            var message = "";
+                            var message2="";
 
+                            if (fileInput.files.length ) {
+                            document.getElementById('visorArchivo').innerHTML='';
+                            document.getElementById('miniatura').innerHTML='';
 
-  var datos = JSON.parse('<?= json_encode($imagenes) ?>');
-    
-      var arr = [];
-      
-      datos.forEach(objeto=>{
-          var tmp = [];
-      tmp.push(
-         " <img src='"+objeto.imagen_muestra+"' style='width:50px; height:30px;'>",
-          objeto.nombre_alimento,
-           '<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-id="'+objeto.id_imagen_muestra+'" data-id2="'+objeto.id_alimento+'" data-nombre="'+objeto.nombre_alimento+'" >Eliminar</button>'
-      );
-          arr.push(tmp);
-          console.log(arr);
-          
-  });
-   tableTwo = $('#data-table-imagenes').DataTable( {
-    data: arr,
-    columns: [
-     
-        { title: "Foto" },
-        { title: "Platillo" },
-        { title: "Acciones" }
-        
-    ],
+                             for (let i=0; i < fileInput.files.length;i++) {
+                             let visor = new FileReader();
+                             visor.onload = function(e) {
 
-  });
+                                          if(i==0)
+                                          {
+                                            message='<div class="carousel-item active">'+
+                                            '<img class="d-block w-100" src="' + e.target.result + '" alt="'+i+' slide">'+
+                                            '</div>';
+                                             message2='<li data-target="#imagesSlider" data-slide-to="'+i+'" class="active"> <img class="d-block w-100" src="' +e.target.result + '" alt="'+i+' slide"></li>';
+                                           }
+                                            else
+                                            {
+                                                message+='<div class="carousel-item ">'+
+                                                '<img class="d-block w-100" src="' + e.target.result+'" alt="'+i+' slide">'+
+                                                '</div>';  
+                                                message2+='<li data-target="#imagesSlider" data-slide-to="'+i+'"><img class="d-block w-100" src="'+e.target.result+'" alt="'+i+' slide"></li>';
+                                            }
+                                            document.getElementById('visorArchivo').innerHTML=message;
+                                            document.getElementById('miniatura').innerHTML=message2; 
+                                          };
+
+                                          visor.readAsDataURL(fileInput.files[i]);
+                                   }
+                              }
+                     }
     
-    $("#data-table-imagenes").on('click', '.btn-info', function () { $(this).parent().parent().remove(); }); 
     
-    
-   /* $('#data-table-imagenes tbody').on( 'click', 'tr', function () {
-        if ( $(this).hasClass('selected') ) {
-            $(this).removeClass('selected');
+    function ingresar()
+    {
+        var id_alimento = $("#id_alimento").val();
+        const formData = new FormData();
+        for(const file of inpFile.files){
+            formData.append("myFiles[]",file);
         }
-        else {
-            tableTwo.$('tr.selected').removeClass('selected');
-            $(this).addClass('selected');
-        }
-    } );*/
- 
-    /*$('#button').click( function () {
-        tableTwo.row('.selected').remove().draw( false );
-    } );*/
- 
-    
-
-    /*tableTwo = $('#data-table-imagenes').DataTable();
-    $('#tableDestroy').on( 'click', function () {
-        tableTwo.draw();
         
-    } );*/
+        $.ajax({
+            headers: {
+             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+             },
+            type: "POST",
+            contentType:false, 
+            url: "/Admin_imagenes_muestra_insertar",
+            data: formData,
+            processData:false,
+            cache:false,
+            success: function (msg) {
+                alert(msg);
+                //datos_datatable.remove();
+                //$('#deleteModal').modal('hide');  
+            }
+        });
+    }
     
-    /*$('#obtener').click(function() { 
-     for (var i = 0; i < tableTwo.rows('.selected').data().length; i++) { 
-     console.log(tableTwo.rows('.selected').data()[i].nombre_alimento); 
-    } 
-});
     
-      
-})(jQuery);
 </script>
 @stop
 @stop

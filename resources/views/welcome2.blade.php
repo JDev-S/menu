@@ -5,6 +5,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+    @yield('metas')
   <title>Foodtech Dashboard</title>
   <!-- Iconic Fonts -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -91,7 +92,7 @@
         </a>
         <ul id="invoice" class="collapse" aria-labelledby="invoice" data-parent="#side-nav-accordion">
 
-          <li> <a href="pages\product\productlist.html">Listado de Metodos de usuarios</a>
+          <li> <a href="/admin_usuario">Listado de usuarios</a>
           </li>
 
           <li> <a href="pages\product\addproduct.html">Agregar usuario</a>

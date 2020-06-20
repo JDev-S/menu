@@ -8,7 +8,7 @@ class UsuarioController extends Controller
 {
     public function usuarios_mostrar()
 	{
-		$usuarios=DB::select('select usuario.id_usuario, rol.id_rol, rol.rol, usuario.nombre, usuario.apellidos, usuario.nombre_usuario, usuario.correo, usuario.contraseña, usuario.telefono, usuario.fecha_nacimiento, usuario.sexo from usuario inner join rol on rol.id_rol = usuario.id_rol');
+		$usuarios=DB::select("select usuario.id_usuario,concat(usuario.nombre,' ',usuario.apellidos)as nombre_completo, rol.id_rol, rol.rol, usuario.nombre, usuario.apellidos, usuario.nombre_usuario, usuario.correo, usuario.contraseña, usuario.telefono, usuario.fecha_nacimiento, usuario.sexo from usuario inner join rol on rol.id_rol = usuario.id_rol");
           
 		return view('/Administrador/Usuario/index',compact('usuarios'));
     }
@@ -20,6 +20,11 @@ class UsuarioController extends Controller
 		$query=DB::delete("update usuario set eliminado='1' WHERE id_usuario='$id_usuario'");
 		return redirect()->action('UsuarioController@usuario_mostrar')->withInput();
 	}
+    
+     public function mostrar_insertar()
+	{  
+		return view('/Administrador/Usuario/insertar');
+    }
     
 	public function insertar(Request $input)
 	{
@@ -38,6 +43,14 @@ class UsuarioController extends Controller
         return redirect()->action('UsuarioController@usuarios_mostrar')->withInput();
 	}
 
+     public function mostrar_actualizar()
+	{
+        $id=$_GET['usuario'];
+        $usuario=DB::select("select usuario.id_usuario,concat(usuario.nombre,' ',usuario.apellidos)as nombre_completo, rol.id_rol, rol.rol, usuario.nombre, usuario.apellidos, usuario.nombre_usuario, usuario.correo, usuario.contraseña, usuario.telefono, usuario.fecha_nacimiento, usuario.sexo from usuario inner join rol on rol.id_rol = usuario.id_rol where usuario.id_usuario=$id");
+
+		return view('/Administrador/Usuario/actualizar',compact('usuario'));
+    }
+    
 	public function actualizar(Request $input)
 	{	    
         $id_usuario = $input['id_usuario'];

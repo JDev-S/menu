@@ -58,16 +58,13 @@
 @section('scripts')
 <script type="text/javascript">
 (function($) {
-  'use strict';
-
-  var datos = JSON.parse('<?= json_encode($alimentos) ?>');
-    
-      var arr = [];
+     'use strict';
+      var datos = JSON.parse('<?= json_encode($alimentos) ?>');  
+      var arr = [];  
       
-      datos.forEach(objeto=>{
-          var tmp = [];
+    datos.forEach(objeto=>{
+      var tmp = [];
       tmp.push(
-         
           " <img src='"+objeto.fotografia_miniatura+"' style='width:50px; height:30px;'>"+objeto.nombre_alimento,
           //objeto.descripcion,
           objeto.nombre_categoria,
@@ -76,16 +73,13 @@
           "$ "+objeto.precio,
            '<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-id="'+objeto.id_alimento+'" data-nombre="'+objeto.nombre_alimento+'">Eliminar</button>'+
           '<a href="/actualizar_alimento?alimento='+objeto.id_alimento+'" class="btn btn-primary">Actualizar</a>'
-          
            //objeto.id_alimento,
-          //objeto.id_categoria
-          
+          //objeto.id_categoria 
       );
-          
           arr.push(tmp);
-          console.log(arr);
-          
+          console.log(arr); 
   });
+    
   var tableTwo = $('#data-table-prueba').DataTable( {
     data: arr,
     columns: [
