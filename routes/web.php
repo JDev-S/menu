@@ -71,11 +71,13 @@ Route::get('/admin_usuario','UsuarioController@usuarios_mostrar');
 
 Route::post('/admin_usuario_eliminar','UsuarioController@eliminar');
 
-Route::get('/agregar_alimento','AlimentosController@mostrar_insertar');
-Route::post('/Admin_usuario_insertar','UsuarioController@insertar');
+Route::get('/agregar_usuario','UsuarioController@mostrar_insertar');
+//Route::post('/Admin_alimentos_nuevo','UsuarioController@insertar');
+Route::post('/Admin_usuario_nuevo','UsuarioController@insertar')->name('Admin_usuario_nuevo');
+
 
 Route::get('/actualizar_usuario','UsuarioController@mostrar_actualizar');
-Route::post('/Admin_usuario_actualizar','UsuarioController@actualizar');
+Route::post('/Admin_usuario_actualizar','UsuarioController@actualizar')->name('Admin_usuario_actualizar');
 
 /*Administrador Metodo de pago*/
 
@@ -84,6 +86,7 @@ Route::get('/admin_metodo_de_pago','Metodo_pagoController@metodo_pago_mostrar');
 Route::post('/admin_metodo_de_pago_eliminar','Metodo_pagoController@eliminar');
 
 Route::post('/Admin_metodo_de_pago_insertar','Metodo_pagoController@insertar');
+
 
 Route::post('/Admin_metodo_de_pago_actualizar','Metodo_pagoController@actualizar');
 
@@ -112,5 +115,8 @@ Route::get('/admin_imagenes_muestra/{alimento?}','Imagenes_muestraController@ima
 Route::post('/admin_imagenes_muestra_eliminar','Imagenes_muestraController@eliminar')->name('admin_imagenes_muestra_eliminar');
 
 Route::post('/Admin_imagenes_muestra_insertar','Imagenes_muestraController@insertar')->name('Admin_imagenes_muestra_insertar');
+
+/*Administrador direcciones*/
+Route::get('/admin_direcciones/{direccion?}','DireccionController@direccion_mostrar');
 
 

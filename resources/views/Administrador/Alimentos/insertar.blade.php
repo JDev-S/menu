@@ -137,8 +137,6 @@
                   </div>
                 </div>
                   
-
-                  
                 <div class="ms-panel-header new">
                   <p class="medium">Disponibles</p>
                   <div>
@@ -148,7 +146,6 @@
                     </label>
                   </div>
                 </div>
-
                 <div class="ms-panel-header new">
                   <!--<button class="btn btn-secondary d-block" type="submit">Guardar</button>-->
                   <button class="btn btn-primary d-block" type="submit">Guardar y añadir</button>

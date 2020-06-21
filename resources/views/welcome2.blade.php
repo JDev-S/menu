@@ -95,7 +95,7 @@
           <li> <a href="/admin_usuario">Listado de usuarios</a>
           </li>
 
-          <li> <a href="pages\product\addproduct.html">Agregar usuario</a>
+          <li> <a href="/agregar_usuario">Agregar usuario</a>
           </li>
 
         </ul>
