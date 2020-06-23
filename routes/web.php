@@ -119,4 +119,8 @@ Route::post('/Admin_imagenes_muestra_insertar','Imagenes_muestraController@inser
 /*Administrador direcciones*/
 Route::get('/admin_direcciones/{direccion?}','DireccionController@direccion_mostrar');
 
+Route::post('/admin_direccioneseliminar','DireccionController@eliminar')->name('admin_direccioneseliminar');
 
+Route::post('/admin_direccionesingresar','DireccionController@insertar')->name('admin_direccionesingresar');
+
+Route::post('/admin_direccionesactualizar','DireccionController@actualizar')->name('admin_direccionesactualizar');
