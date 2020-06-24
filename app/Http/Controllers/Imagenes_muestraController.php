@@ -33,34 +33,33 @@ class Imagenes_muestraController extends Controller
     
 	public function insertar(Request $input)
 	{
-        $file=$input->file;
-        var_dump ($file);
-        die();
-        //$id_alimento = $input['id_alimento'];
-        //$query2=DB::select("select *  FROM alimentos WHERE id_alimento='$id_alimento'");
-         //$nombre=$query2[0]->nombre_alimento;
-
-        echo 'Files';
-        
-         
-        
-        
-
-        
         $foto="";
         $i=0;
-         if($input->hasFile('miarchivo'))
+        $files=$input->file;
+        $id_alimento=$input->id_alimento;
+        //var_dump($file);
+    
+        $query2=DB::select("select *  FROM alimentos WHERE id_alimento='$id_alimento'");
+        $nombre=$query2[0]->nombre_alimento;
+        
+         if(empty($files))
          {
-             foreach($input->file('miarchivo') as $file)
+             echo "No Hay archivos";
+
+         }
+        else
+        {
+            foreach($files as $file)
              {
                  $name=time()+$i."_".$nombre;
                  $file->move(public_path().'/images/',$name);
                  $foto="/images/".$name;
+                 
                 $query=DB::insert('insert into imagenes_de_muestra (id_imagen_muestra, id_alimento, imagen_muestra) values ( ?, ?, ?)', [null, $id_alimento, $foto]);
                 $foto="";
                 $i++;
              }
-         }
-        
+            echo "si";
+        }    
 	}
 }

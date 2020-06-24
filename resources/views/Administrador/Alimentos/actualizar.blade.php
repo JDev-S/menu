@@ -204,7 +204,7 @@
                     <div class="col-md-12 mb-3">
                         <label for="validationCustom12">Imagenes </label>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inpFile" name="inpFile" multiple="multiple">
+                            <input type="file" class="custom-file-input" id="inpFile" name="inpFile" multiple="multiple" onchange="GetFileInfo()">
                             <label class="custom-file-label" for="validatedCustomFile">Elige las imagenes</label>
                             <div class="invalid-feedback">Example invalid custom file feedback</div>
                         </div>
@@ -386,11 +386,25 @@
 
 
     function ingresar() {
+       
+        
+        //const formData = new FormData();
+        //for (const file of inpFile.files) {
+        //  formData.append("myFiles[]", file);
+        //}
         var id_alimento = $("#id_alimento").val();
-        const formData = new FormData();
-        for (const file of inpFile.files) {
-            formData.append("myFiles[]", file);
+        var formData = new FormData();
+        var filesLength = document.getElementById('inpFile').files.length;
+        for (var i = 0; i < filesLength; i++) {
+            formData.append("file[]", document.getElementById('inpFile').files[i]);
         }
+        formData.append("id_alimento", id_alimento);
+        var data = {
+            miarchivo: formData,
+           
+        };
+        
+        //alert(data.id_alimento);
 
         $.ajax({
             headers: {
@@ -404,10 +418,13 @@
             cache: false,
             success: function(msg) {
                 alert(msg);
+                console.log(msg);
                 //datos_datatable.remove();
                 //$('#deleteModal').modal('hide');  
             }
         });
+
+
     }
 
 </script>
