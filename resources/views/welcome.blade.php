@@ -56,20 +56,14 @@
                                 <div class="row">
                                     <!-- location picker -->
                                     <div class="col-lg-6 col-md-5">
-                                        <a href="#" class="delivery-add p-relative"> <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
-                                            <span class="address">Brooklyn, NY</span>
-                                        </a>
+
                                         <div class="location-picker">
                                             <input type="text" class="form-control" placeholder="Enter a new address">
                                         </div>
                                     </div>
                                     <!-- location picker -->
                                     <!-- search -->
-                                    <div class="col-lg-6 col-md-7">
-                                        <div class="search-box padding-10">
-                                            <input type="text" class="form-control" placeholder="Pizza, Burger, Chinese">
-                                        </div>
-                                    </div>
+
                                     <!-- search -->
                                 </div>
                             </form>
@@ -77,7 +71,7 @@
                         <div class="right-side fw-700 mainNavCol">
                             <div class="gem-points">
                                 <a href="#"> <i class="fas fa-concierge-bell"></i>
-                                    <span>Order Now</span>
+                                    <span>Ordenar ahora</span>
                                 </a>
                             </div>
                             <div class="catring parent-megamenu">
@@ -197,53 +191,30 @@
                                         <li>
                                             <a href="order-details.html">
                                                 <div class="icon"><i class="flaticon-rewind"></i>
-                                                </div> <span class="details">Past Orders</span>
+                                                </div> <span class="details">Ver información</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="order-details.html">
                                                 <div class="icon"><i class="flaticon-takeaway"></i>
-                                                </div> <span class="details">Upcoming Orders</span>
+                                                </div> <span class="details">Cambiar contraseña</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#">
                                                 <div class="icon"><i class="flaticon-breadbox"></i>
-                                                </div> <span class="details">Saved</span>
+                                                </div> <span class="details">Cambiar datos</span>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a href="#">
-                                                <div class="icon"><i class="flaticon-gift"></i>
-                                                </div> <span class="details">Gift cards</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <div class="icon"><i class="flaticon-refer"></i>
-                                                </div> <span class="details">Refer a friend</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <div class="icon"><i class="flaticon-diamond"></i>
-                                                </div> <span class="details">Perks</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <div class="icon"><i class="flaticon-user"></i>
-                                                </div> <span class="details">Account</span>
-                                            </a>
-                                        </li>
+
                                         <li>
                                             <a href="#">
                                                 <div class="icon"><i class="flaticon-board-games-with-roles"></i>
-                                                </div> <span class="details">Help</span>
+                                                </div> <span class="details">Mis ordenes</span>
                                             </a>
                                         </li>
                                     </ul>
-                                    <div class="user-footer"> <span class="text-light-black">Not Jhon?</span> <a href="#">Sign Out</a>
+                                    <div class="user-footer"> <a href="#">Cerrar sesión</a>
                                     </div>
                                 </div>
                             </div>
@@ -297,8 +268,8 @@
                                                         </a>
                                                     </div>
                                                     <div class="price"> <a href="#" class="text-dark-white fw-500">
-                              $2.25
-                            </a>
+                                                            $2.25
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -314,8 +285,8 @@
                                                         </a>
                                                     </div>
                                                     <div class="price"> <a href="#" class="text-dark-white fw-500">
-                              $2.25
-                            </a>
+                                                            $2.25
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -331,8 +302,8 @@
                                                         </a>
                                                     </div>
                                                     <div class="price"> <a href="#" class="text-dark-white fw-500">
-                              $2.25
-                            </a>
+                                                            $2.25
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -361,11 +332,11 @@
                             <div class="btns">
                                 <div class="filter-btn">
                                     <button type="button"><i class="fas fa-sliders-h text-light-green fs-18"></i>
-                  </button> <span class="text-light-green">Sort</span>
+                                    </button> <span class="text-light-green">Sort</span>
                                 </div>
                                 <div class="filter-btn">
                                     <button type="button"><i class="fas fa-filter text-light-green fs-18"></i>
-                  </button> <span class="text-light-green">Filter</span>
+                                    </button> <span class="text-light-green">Filter</span>
                                 </div>
                             </div>
                         </div>
@@ -375,12 +346,12 @@
         </header>
     </div>
     <div class="main-sec"></div>
-    
-    
-    
-@yield('contenido')
-    
-    
+
+
+
+    @yield('contenido')
+
+
     <footer class="section-padding bg-light-theme pt-0 u-line bg-black">
         <div class="u-line instagram-slider swiper-container">
             <ul class="hm-list hm-instagram swiper-wrapper">
@@ -498,8 +469,8 @@
                             <div class="input-group">
                                 <input type="text" class="form-control form-control-submit" name="email" placeholder="Enter your email">
                                 <span class="input-group-btn">
-                      <button class="btn btn-second btn-submit" type="button"><i class="fas fa-paper-plane"></i></button>
-                 </span>
+                                    <button class="btn btn-second btn-submit" type="button"><i class="fas fa-paper-plane"></i></button>
+                                </span>
                             </div>
                         </form>
                     </div>
@@ -538,10 +509,12 @@
                     </div>
                 </div>
                 <div class="col-lg-4 text-center medewithlove align-self-center">
-                    <a href="http://www.Slidesigma.com" class="text-custom-white">Made with Real <i class="fas fa-heart"></i> Slidesigma</a>
+                    <a href="https://jdevs.com.mx/" class="text-custom-white">Desarrollado por JDev-S</a>
                 </div>
                 <div class="col-lg-4">
-                    <div class="copyright-text"> <span class="text-light-white">© <a href="#" class="text-light-white">Slidesigma</a> - 2020 | All Right Reserved</span>
+                    <div class="copyright-text"> <span class="text-light-white">© <a href="https://jdevs.com.mx/" class="text-light-white">JDev-S</a> -  <?php
+                        $fecha = date('Y');
+                        echo $fecha;?> </span>
                     </div>
                 </div>
             </div>

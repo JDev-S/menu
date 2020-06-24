@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', function () {
-    return view('/principal/index');
-});
+Route::get('/','AlimentosController@principal_index');
 
 Route::get('/login', function () {
     return view('/principal/login');

@@ -42,6 +42,15 @@ class AlimentosController extends Controller
         $files = $input->file('miarchivo');
         $imagen="";
         $i=0;
+        $dispon="";
+        if(empty($disponible))
+        {
+            $dispon=0;
+        }
+        else
+        {
+            $dispon=1;
+        }
 
          if($input->hasFile('fotografia_miniatura'))
          {
@@ -50,7 +59,7 @@ class AlimentosController extends Controller
              $file->move(public_path().'/images/',$name);
              $foto="/images/".$name;
         
-        $query=DB::insert('insert into alimentos (id_alimento, id_categoria, descripcion, fotografia_miniatura, precio,  eliminado, calorias, tiempo_preparacion, nombre_alimento,disponible) values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [null, $id_categoria, $descripcion, $foto, $precio, $eliminado, $calorias, $tiempo_preparacion, $nombre_alimento, $disponible]);
+        $query=DB::insert('insert into alimentos (id_alimento, id_categoria, descripcion, fotografia_miniatura, precio,  eliminado, calorias, tiempo_preparacion, nombre_alimento,disponible) values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [null, $id_categoria, $descripcion, $foto, $precio, $eliminado, $calorias, $tiempo_preparacion, $nombre_alimento, $dispon]);
         /*Ingresar a la tabla imagenes_muestra*/
         $id=DB::select('select id_alimento from alimentos order by id_alimento desc limit 1');
         $id_alimento=$id[0]->id_alimento;
@@ -93,6 +102,16 @@ class AlimentosController extends Controller
         $calorias=$input['calorias'];
         $tiempo_preparacion=$input['tiempo_preparacion'];
         
+         $dispon="";
+        if(empty($disponible))
+        {
+            $dispon=0;
+        }
+        else
+        {
+            $dispon=1;
+        }
+        
         if($input->hasFile('fotografia_miniatura'))
         {
             $file=$input->file('fotografia_miniatura');
@@ -100,13 +119,30 @@ class AlimentosController extends Controller
             $file->move(public_path().'/images/',$name);
             $foto="/images/".$name;
             
-            $query=DB::update("update alimentos set id_categoria='$id_categoria', nombre_alimento='$nombre_alimento', descripcion='$descripcion', fotografia_miniatura='$foto', precio='$precio', eliminado='$eliminado' , calorias='$calorias' , tiempo_preparacion='$tiempo_preparacion', disponible='$disponible' where id_alimento=?",[$id_alimento]);
+            $query=DB::update("update alimentos set id_categoria='$id_categoria', nombre_alimento='$nombre_alimento', descripcion='$descripcion', fotografia_miniatura='$foto', precio='$precio', eliminado='$eliminado' , calorias='$calorias' , tiempo_preparacion='$tiempo_preparacion', disponible='$dispon' where id_alimento=?",[$id_alimento]);
             return redirect()->action('AlimentosController@alimentos_mostrar')->withInput();
         }
         else
         {
-            $query=DB::update("update alimentos set id_categoria='$id_categoria', nombre_alimento='$nombre_alimento', descripcion='$descripcion', precio='$precio', eliminado='$eliminado' , calorias='$calorias' , tiempo_preparacion='$tiempo_preparacion', disponible='$disponible' where id_alimento=?",[$id_alimento]);
+            $query=DB::update("update alimentos set id_categoria='$id_categoria', nombre_alimento='$nombre_alimento', descripcion='$descripcion', precio='$precio', eliminado='$eliminado' , calorias='$calorias' , tiempo_preparacion='$tiempo_preparacion', disponible='$dispon' where id_alimento=?",[$id_alimento]);
             return redirect()->action('AlimentosController@alimentos_mostrar')->withInput();
         }
 	}
+    /*PARA LA PRINCIPAL*/
+    
+    function principal_index()
+    {
+        $categorias=DB::select('select * from categoria');
+        
+        $informacion_alimentos=DB::select('SELECT alimentos.id_alimento, categoria.id_categoria, alimentos.nombre_alimento,categoria.nombre_categoria,alimentos.tiempo_preparacion, alimentos.precio, alimentos.calorias,alimentos.fotografia_miniatura FROM alimentos inner join categoria on categoria.id_categoria=alimentos.id_categoria where alimentos.eliminado=0 and alimentos.disponible=1 limit 6');
+       
+       
+        //$alimento_favoritos=DB::select('SELECT alimentos.id_alimento, categoria.id_categoria, alimentos.nombre_alimento,categoria.nombre_categoria,alimentos.tiempo_preparacion, alimentos.precio, alimentos.calorias,alimentos.fotografia_miniatura FROM usuario INNER join favoritos on usuario.id_usuario=favoritos.id_usuario inner join alimentos on alimentos.id_alimento=favoritos.id_alimento inner join categoria on categoria.id_categoria=alimentos.id_categoria where alimentos.eliminado=0 and alimentos.disponible=1 and usuario.id_usuario=13 limit 6');
+        
+        $alimento_favoritos=DB::select('select alimentos.id_alimento, categoria.id_categoria,alimentos.nombre_alimento,categoria.nombre_categoria,alimentos.tiempo_preparacion,alimentos.precio,alimentos.calorias,alimentos.fotografia_miniatura,COUNT(favoritos.id_alimento) as vendidos from favoritos RIGHT join alimentos on alimentos.id_alimento=favoritos.id_alimento INNER JOIN categoria on categoria.id_categoria=alimentos.id_categoria where alimentos.eliminado=0 and alimentos.disponible=1 GROUP by(alimentos.id_alimento) ORDER by COUNT(favoritos.id_alimento) desc LIMIT 6');
+        
+        $favorito_usuarios=DB::select('select alimentos.id_alimento, categoria.id_categoria,alimentos.nombre_alimento,categoria.nombre_categoria,alimentos.tiempo_preparacion,alimentos.precio,alimentos.calorias,alimentos.fotografia_miniatura from usuario inner join favoritos on usuario.id_usuario=favoritos.id_usuario inner join alimentos on alimentos.id_alimento=favoritos.id_alimento INNER JOIN categoria on categoria.id_categoria=alimentos.id_categoria where alimentos.eliminado=0 and alimentos.disponible=1 and usuario.id_usuario=13 LIMIT 6 ');
+        
+        return view('/principal/index',compact('categorias','informacion_alimentos','alimento_favoritos','favorito_usuarios'));
+    }
 }
