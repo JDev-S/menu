@@ -16,9 +16,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','AlimentosController@principal_index');
 
+Route::get('/contacto', function () {
+    return view('/principal/contacto');
+});
+
+Route::get('/acerca_de', function () {
+    return view('/principal/acerca_de');
+});
+
 Route::get('/login', function () {
     return view('/principal/login');
 });
+
+Route::get('/detalle_producto','AlimentosController@info_platillo');
 
 Route::get('/registrarse', function () {
     return view('/principal/registrarse');

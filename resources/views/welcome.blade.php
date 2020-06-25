@@ -2,576 +2,314 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="keywords" content="#">
-    <meta name="description" content="#">
-    <title>Foodmart | Food Delivery Hub</title>
-    <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="#">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="#">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="#">
-    <link rel="apple-touch-icon-precomposed" href="#">
-    <link rel="shortcut icon" href="#">
-    <!-- Bootstrap -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Fontawesome -->
-    <link href="/css/font-awesome.css" rel="stylesheet">
-    <!-- Flaticons -->
-    <link href="/css/flaticon.css" rel="stylesheet">
-    <!-- Swiper Slider -->
-    <link href="/css/swiper.min.css" rel="stylesheet">
-    <!-- Range Slider -->
-    <link href="/css/ion.rangeSlider.min.css" rel="stylesheet">
-    <!-- magnific popup -->
-    <link href="/css/magnific-popup.css" rel="stylesheet">
-    <!-- Nice Select -->
-    <link href="/css/nice-select.css" rel="stylesheet">
-    <!-- Custom Stylesheet -->
-    <link href="/css/style.css" rel="stylesheet">
-    <!-- Custom Responsive -->
-    <link href="/css/responsive.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
-    <!-- place -->
+    <meta name="keywords" content="HTML5 Template">
+    <meta name="description" content="Zester - Restaurant and Cafe HTML Template">
+    <meta name="author" content="https://www.themetechmount.com/">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Zester - Restaurant and Cafe HTML Template</title>
+
+    <!-- favicon icon -->
+    <link rel="shortcut icon" href="images\favicon.png">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
+
+    <!-- animate -->
+    <link rel="stylesheet" type="text/css" href="css\animate.css">
+
+    <link rel="stylesheet" type="text/css" href="css\animate.min.css">
+
+
+    <!-- owl-carousel -->
+    <link rel="stylesheet" type="text/css" href="css\owl.carousel.css">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" type="text/css" href="css\font-awesome.css">
+
+    <!-- themify -->
+    <link rel="stylesheet" type="text/css" href="css\themify-icons.css">
+
+    <!-- flaticon -->
+    <link rel="stylesheet" type="text/css" href="css\flaticon.css">
+
+    <!-- prettyphoto -->
+    <link rel="stylesheet" type="text/css" href="css\prettyPhoto.css">
+
+    <!-- shortcodes -->
+    <link rel="stylesheet" type="text/css" href="css\shortcodes.css">
+
+    <!-- main -->
+    <link rel="stylesheet" type="text/css" href="css\main.css">
+
+    <!-- responsive -->
+    <link rel="stylesheet" type="text/css" href="css\responsive.css">
+
+
+
 </head>
 
 <body>
-    <!-- Navigation -->
-    <div class="header">
-        <header class="full-width">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12 mainNavCol">
-                        <!-- logo -->
-                        <div class="logo mainNavCol">
-                            <a href="index.html">
-                                <img src="/images/logo.png" class="img-fluid" alt="Logo">
-                            </a>
-                        </div>
-                        <!-- logo -->
-                        <div class="main-search mainNavCol">
-                            <form class="main-search search-form full-width">
-                                <div class="row">
-                                    <!-- location picker -->
-                                    <div class="col-lg-6 col-md-5">
 
-                                        <div class="location-picker">
-                                            <input type="text" class="form-control" placeholder="Enter a new address">
-                                        </div>
-                                    </div>
-                                    <!-- location picker -->
-                                    <!-- search -->
+    <!--page start-->
+    <div class="page sidebar-true">
 
-                                    <!-- search -->
-                                </div>
-                            </form>
-                        </div>
-                        <div class="right-side fw-700 mainNavCol">
-                            <div class="gem-points">
-                                <a href="#"> <i class="fas fa-concierge-bell"></i>
-                                    <span>Ordenar ahora</span>
-                                </a>
-                            </div>
-                            <div class="catring parent-megamenu">
-                                <a href="#"> <span>Pages <i class="fas fa-caret-down"></i></span>
-                                    <i class="fas fa-bars"></i>
-                                </a>
-                                <div class="megamenu">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="row">
-                                                <div class="col-lg-4 col-md-5">
-                                                    <div class="ex-collection-box h-100">
-                                                        <a href="#">
-                                                            <img src="/images/nav-1.jpg" class="img-fluid full-width h-100" alt="image">
-                                                        </a>
-                                                        <div class="category-type overlay padding-15"> <a href="restaurant.html" class="category-btn">Top rated</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-8 col-md-7">
-                                                    <div class="row">
-                                                        <div class="col-lg-3 col-sm-6">
-                                                            <div class="menu-style">
-                                                                <div class="menu-title">
-                                                                    <h6 class="cat-name"><a href="#" class="text-light-black">Home Pages</a></h6>
-                                                                </div>
-                                                                <ul>
-                                                                    <li class="active"><a href="index.html" class="text-light-white fw-500">Landing Page</a>
-                                                                    </li>
-                                                                    <li><a href="homepage-1.html" class="text-light-white fw-500">Home Page 1</a>
-                                                                    </li>
-                                                                    <li><a href="homepage-2.html" class="text-light-white fw-500">Home Page 2</a>
-                                                                    </li>
-                                                                    <li><a href="homepage-3.html" class="text-light-white fw-500">Home Page 3</a>
-                                                                    </li>
-                                                                    <li><a href="homepage-4.html" class="text-light-white fw-500">Home Page 4</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-3 col-sm-6">
-                                                            <div class="menu-style">
-                                                                <div class="menu-title">
-                                                                    <h6 class="cat-name"><a href="#" class="text-light-black">Inner Pages</a></h6>
-                                                                </div>
-                                                                <ul>
-                                                                    <li><a href="blog.html" class="text-light-white fw-500">Blog Grid View</a>
-                                                                    </li>
-                                                                    <li><a href="blog-style-2.html" class="text-light-white fw-500">Blog Grid View 2</a>
-                                                                    </li>
-                                                                    <li><a href="blog-details.html" class="text-light-white fw-500">Blog Details</a>
-                                                                    </li>
-                                                                    <li><a href="ex-deals.html" class="text-light-white fw-500">Ex Deals</a>
-                                                                    </li>
-                                                                    <li><a href="about.html" class="text-light-white fw-500">About Us</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-3 col-sm-6">
-                                                            <div class="menu-style">
-                                                                <div class="menu-title">
-                                                                    <h6 class="cat-name"><a href="#" class="text-light-black">Related Pages</a></h6>
-                                                                </div>
-                                                                <ul>
-                                                                    <li><a href="restaurant.html" class="text-light-white fw-500">Restaurant</a>
-                                                                    <li><a href="restaurant-style-1.html" class="text-light-white fw-500">Restaurant 1</a>
-                                                                    </li>
-                                                                    <li><a href="restaurant-style-2.html" class="text-light-white fw-500">Restaurant 2</a>
-                                                                    </li>
-                                                                    <li><a href="add-restaurant.html" class="text-light-white fw-500">Add Restaurant</a>
-                                                                    </li>
-                                                                    <li><a href="list-view.html" class="text-light-white fw-500">List View</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-3 col-sm-6">
-                                                            <div class="menu-style">
-                                                                <div class="menu-title">
-                                                                    <h6 class="cat-name"><a href="#" class="text-light-black">Additional Pages</a></h6>
-                                                                </div>
-                                                                <ul>
-                                                                    <li><a href="login.html" class="text-light-white fw-500">Login</a>
-                                                                    </li>
-                                                                    <li><a href="register.html" class="text-light-white fw-500">Sign-up</a>
-                                                                    </li>
-                                                                    <li><a href="checkout.html" class="text-light-white fw-500">Checkout</a>
-                                                                    </li>
-                                                                    <li><a href="order-details.html" class="text-light-white fw-500">Order Details</a>
-                                                                    </li>
-                                                                    <li><a href="geo-locator.html" class="text-light-white fw-500">Geo Locator</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+        <!--header start-->
+        <header id="masthead" class="header ttm-header-style-01">
+            <!-- ttm-header-wrap -->
+            <div class="ttm-header-wrap">
+                <!-- ttm-stickable-header-w -->
+                <div id="ttm-stickable-header-w" class="ttm-stickable-header-w ttm-bgcolor-darkgrey clearfix">
+                    <div id="site-header-menu" class="site-header-menu">
+                        <div class="site-header-menu-inner ttm-stickable-header">
+                            <div class="container-fluid">
+                                <!-- site-branding -->
+                                <div class="site-branding">
+                                    <a class="home-link" href="index.html" title="Zester" rel="home">
+                                        <img id="logo-img" class="img-center" src="images\logo-white.png" alt="logo-img">
+                                    </a>
+                                </div><!-- site-branding end -->
+                                <!--site-navigation -->
+                                <div id="site-navigation" class="site-navigation">
+                                    <!-- header-icons -->
+                                    <div class="ttm-header-icons ">
+                                        <span class="ttm-header-icon ttm-header-cart-link">
+                                            <a href="#"><i class="ti ti-shopping-cart"></i>
+                                                <span class="number-cart">0</span>
+                                            </a>
+                                        </span>
+                                        <div class="ttm-header-icon ttm-header-search-link">
+                                            <a href="#"><i class="fa fa-search"></i></a>
+                                            <div class="ttm-search-overlay">
+                                                <div class="ttm-bg-layer"></div>
+                                                <div class="ttm-icon-close"></div>
+                                                <div class="ttm-search-outer">
+                                                    <div class="ttm-form-title">Hi, How Can We Help You?</div>
+                                                    <form method="get" class="ttm-site-searchform" action="#">
+                                                        <input type="search" class="field searchform-s" name="s" placeholder="Type Word Then Enter...">
+                                                        <button type="submit">
+                                                            <i class="ti ti-search"></i>
+                                                        </button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
+                                    </div><!-- header-icons end -->
+                                    <div class="header-btn">
+                                        <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-skincolor" href="#">ORDER ONLINE</a>
                                     </div>
-                                </div>
-                            </div>
-                            <!-- mobile search -->
-                            <div class="mobile-search">
-                                <a href="#" data-toggle="modal" data-target="#search-box"> <i class="fas fa-search"></i>
-                                </a>
-                            </div>
-                            <!-- mobile search -->
-                            <!-- user account -->
-                            <div class="user-details p-relative">
-                                <a href="#" class="text-light-white fw-500">
-                                    <img src="/images/user-1.png" class="rounded-circle" alt="userimg"> <span>Hi, Kate</span>
-                                </a>
-                                <div class="user-dropdown">
-                                    <ul>
-                                        <li>
-                                            <a href="order-details.html">
-                                                <div class="icon"><i class="flaticon-rewind"></i>
-                                                </div> <span class="details">Ver información</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="order-details.html">
-                                                <div class="icon"><i class="flaticon-takeaway"></i>
-                                                </div> <span class="details">Cambiar contraseña</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <div class="icon"><i class="flaticon-breadbox"></i>
-                                                </div> <span class="details">Cambiar datos</span>
-                                            </a>
-                                        </li>
+                                    <div class="ttm-menu-toggle">
+                                        <input type="checkbox" id="menu-toggle-form">
+                                        <label for="menu-toggle-form" class="ttm-menu-toggle-block">
+                                            <span class="toggle-block toggle-blocks-1"></span>
+                                            <span class="toggle-block toggle-blocks-2"></span>
+                                            <span class="toggle-block toggle-blocks-3"></span>
+                                        </label>
+                                    </div>
+                                    <nav id="menu" class="menu">
+                                        <ul class="dropdown">
+                                            <li><a href="/">Inicio</a>
 
-                                        <li>
-                                            <a href="#">
-                                                <div class="icon"><i class="flaticon-board-games-with-roles"></i>
-                                                </div> <span class="details">Mis ordenes</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <div class="user-footer"> <a href="#">Cerrar sesión</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- mobile search -->
-                            <!-- user notification -->
-                            <div class="cart-btn notification-btn">
-                                <a href="#" class="text-light-green fw-700"> <i class="fas fa-bell"></i>
-                                    <span class="user-alert-notification"></span>
-                                </a>
-                                <div class="notification-dropdown">
-                                    <div class="product-detail">
-                                        <a href="#">
-                                            <div class="img-box">
-                                                <img src="/images/shop-1.png" class="rounded" alt="image">
-                                            </div>
-                                            <div class="product-about">
-                                                <p class="text-light-black">Lil Johnny’s</p>
-                                                <p class="text-light-white">Spicy Maxican Grill</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="rating-box">
-                                        <p class="text-light-black">How was your last order ?.</p> <span class="text-dark-white"><i class="fas fa-star"></i></span>
-                                        <span class="text-dark-white"><i class="fas fa-star"></i></span>
-                                        <span class="text-dark-white"><i class="fas fa-star"></i></span>
-                                        <span class="text-dark-white"><i class="fas fa-star"></i></span>
-                                        <span class="text-dark-white"><i class="fas fa-star"></i></span>
-                                        <cite class="text-light-white">Ordered 2 days ago</cite>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- user notification -->
-                            <!-- user cart -->
-                            <div class="cart-btn cart-dropdown">
-                                <a href="#" class="text-light-green fw-700"> <i class="fas fa-shopping-bag"></i>
-                                    <span class="user-alert-cart">3</span>
-                                </a>
-                                <div class="cart-detail-box">
-                                    <div class="card">
-                                        <div class="card-header padding-15">Your Order</div>
-                                        <div class="card-body no-padding">
-                                            <div class="cat-product-box">
-                                                <div class="cat-product">
-                                                    <div class="cat-name">
-                                                        <a href="#">
-                                                            <p class="text-light-green"><span class="text-dark-white">1</span> Chilli Chicken</p> <span class="text-light-white">small, chilli chicken</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="delete-btn">
-                                                        <a href="#" class="text-dark-white"> <i class="far fa-trash-alt"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="price"> <a href="#" class="text-dark-white fw-500">
-                                                            $2.25
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cat-product-box">
-                                                <div class="cat-product">
-                                                    <div class="cat-name">
-                                                        <a href="#">
-                                                            <p class="text-light-green"><span class="text-dark-white">1</span> loaded cheese</p> <span class="text-light-white">small, chilli chicken</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="delete-btn">
-                                                        <a href="#" class="text-dark-white"> <i class="far fa-trash-alt"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="price"> <a href="#" class="text-dark-white fw-500">
-                                                            $2.25
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cat-product-box">
-                                                <div class="cat-product">
-                                                    <div class="cat-name">
-                                                        <a href="#">
-                                                            <p class="text-light-green"><span class="text-dark-white">1</span> Tortia Chicken</p> <span class="text-light-white">small, chilli chicken</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="delete-btn">
-                                                        <a href="#" class="text-dark-white"> <i class="far fa-trash-alt"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="price"> <a href="#" class="text-dark-white fw-500">
-                                                            $2.25
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item-total">
-                                                <div class="total-price border-0"> <span class="text-dark-white fw-700">Items subtotal:</span>
-                                                    <span class="text-dark-white fw-700">$9.99</span>
-                                                </div>
-                                                <div class="empty-bag padding-15"> <a href="#">Empty bag</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-footer padding-15"> <a href="checkout.html" class="btn-first green-btn text-custom-white full-width fw-500">Proceed to Checkout</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- user cart -->
-                        </div>
-                    </div>
-                    <div class="col-sm-12 mobile-search">
-                        <div class="mobile-address">
-                            <a href="#" class="delivery-add" data-toggle="modal" data-target="#address-box"> <span class="address">Brooklyn, NY</span>
-                            </a>
-                        </div>
-                        <div class="sorting-addressbox"> <span class="full-address text-light-green">Brooklyn, NY 10041</span>
-                            <div class="btns">
-                                <div class="filter-btn">
-                                    <button type="button"><i class="fas fa-sliders-h text-light-green fs-18"></i>
-                                    </button> <span class="text-light-green">Sort</span>
-                                </div>
-                                <div class="filter-btn">
-                                    <button type="button"><i class="fas fa-filter text-light-green fs-18"></i>
-                                    </button> <span class="text-light-green">Filter</span>
-                                </div>
+                                            </li>
+                                            <li><a href="/acerca_de">Acerca de </a>
+
+                                            </li>
+                                            <li><a href="/contacto">Contacto</a>
+
+                                            </li>
+                                            <li><a href="/login">Iniciar sesion</a>
+
+                                            </li>
+
+                                        </ul>
+                                    </nav>
+                                </div><!-- site-navigation end-->
                             </div>
                         </div>
                     </div>
-                </div>
+                </div><!-- ttm-stickable-header-w end-->
             </div>
+            <!--ttm-header-wrap end -->
         </header>
-    </div>
-    <div class="main-sec"></div>
+        <!--header end-->
 
-
-
-    @yield('contenido')
-
-
-    <footer class="section-padding bg-light-theme pt-0 u-line bg-black">
-        <div class="u-line instagram-slider swiper-container">
-            <ul class="hm-list hm-instagram swiper-wrapper">
-                <li class="swiper-slide">
-                    <a href="#"><img src="/images/insta-3.jpg" alt="instagram"></a>
-                </li>
-                <li class="swiper-slide">
-                    <a href="#"><img src="/images/insta-1.jpg" alt="instagram"></a>
-                </li>
-                <li class="swiper-slide">
-                    <a href="#"><img src="/images/insta-2.jpg" alt="instagram"></a>
-                </li>
-                <li class="swiper-slide">
-                    <a href="#"><img src="/images/insta-4.jpg" alt="instagram"></a>
-                </li>
-                <li class="swiper-slide">
-                    <a href="#"><img src="/images/insta-5.jpg" alt="instagram"></a>
-                </li>
-                <li class="swiper-slide">
-                    <a href="#"><img src="/images/insta-6.jpg" alt="instagram"></a>
-                </li>
-                <li class="swiper-slide">
-                    <a href="#"><img src="/images/insta-7.jpg" alt="instagram"></a>
-                </li>
-                <li class="swiper-slide">
-                    <a href="#"><img src="/images/insta-8.jpg" alt="instagram"></a>
-                </li>
-            </ul>
-        </div>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl col-lg-4 col-md-4 col-sm-6">
-                    <div class="footer-contact">
-                        <h6 class="text-custom-white">Need Help</h6>
-                        <ul>
-                            <li class="fw-600"><span class="text-light-white">Call Us</span> <a href="tel:" class="text-custom-white">+(347) 123 456 789</a>
-                            </li>
-                            <li class="fw-600"><span class="text-light-white">Email Us</span> <a href="mailto:" class="text-custom-white">demo@domain.com</a>
-                            </li>
-                            <li class="fw-600"><span class="text-light-white">Join our twitter</span> <a href="#" class="text-custom-white">@foodmart</a>
-                            </li>
-                            <li class="fw-600"><span class="text-light-white">Join our instagram</span> <a href="#" class="text-custom-white">@foodmart</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xl col-lg-4 col-md-4 col-sm-6">
-                    <div class="footer-links">
-                        <h6 class="text-custom-white">Get to Know Us</h6>
-                        <ul>
-                            <li><a href="#" class="text-light-white fw-600">About Us</a>
-                            </li>
-                            <li><a href="#" class="text-light-white fw-600">Blog</a>
-                            </li>
-                            <li><a href="#" class="text-light-white fw-600">Socialize</a>
-                            </li>
-                            <li><a href="#" class="text-light-white fw-600">Foodmart</a>
-                            </li>
-                            <li><a href="#" class="text-light-white fw-600">Perks</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xl col-lg-4 col-md-4 col-sm-6">
-                    <div class="footer-links">
-                        <h6 class="text-custom-white">Let Us Help You</h6>
-                        <ul>
-                            <li><a href="#" class="text-light-white fw-600">Account Details</a>
-                            </li>
-                            <li><a href="#" class="text-light-white fw-600">Order History</a>
-                            </li>
-                            <li><a href="#" class="text-light-white fw-600">Find restaurant</a>
-                            </li>
-                            <li><a href="#" class="text-light-white fw-600">Login</a>
-                            </li>
-                            <li><a href="#" class="text-light-white fw-600">Track order</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xl col-lg-4 col-md-4 col-sm-6">
-                    <div class="footer-links">
-                        <h6 class="text-custom-white">Doing Business</h6>
-                        <ul>
-                            <li><a href="#" class="text-light-white fw-600">Suggest an Idea</a>
-                            </li>
-                            <li><a href="#" class="text-light-white fw-600">Be a Partner restaurant</a>
-                            </li>
-                            <li><a href="#" class="text-light-white fw-600">Create an Account</a>
-                            </li>
-                            <li><a href="#" class="text-light-white fw-600">Help</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xl col-lg-4 col-md-4 col-sm-6">
-                    <div class="footer-links">
-                        <h6 class="text-custom-white">Download Apps</h6>
-                        <div class="appimg">
-                            <a href="#">
-                                <img src="/images/playstore.jpg" class="img-fluid" alt="app logo">
-                            </a>
-                        </div>
-                        <div class="appimg">
-                            <a href="#">
-                                <img src="/images/appstore.jpg" class="img-fluid" alt="app logo">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl col-lg-4 col-md-4 col-sm-6">
-                    <div class="footer-contact">
-                        <h6 class="text-custom-white">Newsletter</h6>
-                        <form class="subscribe_form">
-                            <div class="input-group">
-                                <input type="text" class="form-control form-control-submit" name="email" placeholder="Enter your email">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-second btn-submit" type="button"><i class="fas fa-paper-plane"></i></button>
+        <!-- page-title -->
+        <div class="ttm-page-title-row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="title-box">
+                            <div class="page-title-heading">
+                                <h1 class="title"> Products</h1>
+                            </div><!-- /.page-title-captions -->
+                            <div class="breadcrumb-wrapper">
+                                <span>
+                                    <a title="Homepage" href="index.html">Home</a>
                                 </span>
+                                <span class="ttm-bread-sep"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                                <span><span>Shop</span></span>
                             </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="ft-social-media">
-                        <h6 class="text-center text-light-black">Follow us</h6>
-                        <ul>
-                            <li> <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            </li>
-                            <li> <a href="#"><i class="fab fa-twitter"></i></a>
-                            </li>
-                            <li> <a href="#"><i class="fab fa-instagram"></i></a>
-                            </li>
-                            <li> <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                            </li>
-                            <li> <a href="#"><i class="fab fa-youtube"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                        </div>
+                    </div><!-- /.col-md-12 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
         </div>
-    </footer>
-    <div class="copyright bg-black">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="payment-logo mb-md-20"> <span class="text-light-white fs-14 mr-3">We are accept</span>
-                        <div class="payemt-icon">
-                            <img src="/images/card-front.jpg" alt="#">
-                            <img src="/images/visa.jpg" alt="#">
-                            <img src="/images/amex-card-front.png" alt="#">
-                            <img src="/images/mastercard.png" alt="#">
+        <!-- page-title END-->
+
+
+        @yield('contenido')
+
+
+
+
+
+
+        <!--footer start-->
+        <footer class="footer widget-footer ttm-bgcolor-darkgrey ttm-bg ttm-bgimage-yes bg-img1 clearfix">
+            <div class="ttm-row-wrapper-bg-layer ttm-bg-layer"></div>
+            <div class="first-footer ttm-textcolor-white">
+                <div class="container">
+                    <div class="row mt-40">
+                        <div class="col-md-12 text-center">
+                            <div class="footer-logo-box">
+                                <div class="footer-logo">
+                                    <img id="footer-logo-img" class="img-center" src="images\footer-logo.png" alt="">
+                                </div>
+                                <p class="mb-0">Japanese ambience with Tatami room for dining, a village like a setup inside the dining hall, bar! Experienced staff waiting to give you that unique dining experience.</p>
+                                <br>
+                                <div class="social-icons circle social-hover">
+                                    <ul class="list-inline">
+                                        <li class="social-facebook"><a class="tooltip-top" target="_blank" href="#" data-tooltip="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                        <li class="social-twitter"><a class="tooltip-top" target="_blank" href="#" data-tooltip="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                        <li class="social-flickr"><a class=" tooltip-top" target="_blank" href="#" data-tooltip="flickr"><i class="fa fa-flickr" aria-hidden="true"></i></a></li>
+                                        <li class="social-linkedin"><a class=" tooltip-top" target="_blank" href="#" data-tooltip="LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 text-center medewithlove align-self-center">
-                    <a href="https://jdevs.com.mx/" class="text-custom-white">Desarrollado por JDev-S</a>
-                </div>
-                <div class="col-lg-4">
-                    <div class="copyright-text"> <span class="text-light-white">© <a href="https://jdevs.com.mx/" class="text-light-white">JDev-S</a> -  <?php
-                        $fecha = date('Y');
-                        echo $fecha;?> </span>
+            </div>
+            <div class="second-footer ttm-textcolor-white position-relative">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 widget-area">
+                            <div class="widget contact-widget">
+                                <h3 class="widget-title">Contact Us</h3>
+                                <ul class="contact-widget-wrapper">
+                                    <li><i class="fa fa-map-marker"></i>Themeforest, Envanto HQ 24 Fifth st., Los Angeles, USA</li>
+                                    <li><i class="fa fa-envelope-o"></i><a href="mailto:info@example.com" target="_blank">info@example.com</a></li>
+                                    <li><i class="fa fa-phone"></i>Phone: (+01) 123 456 7890 <br> Support: (+01) 123 789 1200</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 widget-area">
+                            <div class="widget link-widget clearfix">
+                                <h3 class="widget-title">Our Services</h3>
+                                <ul id="menu-footer-services">
+                                    <li><a href="#">Fine Dining & Concierge</a></li>
+                                    <li><a href="#">Quick Counter Service</a></li>
+                                    <li><a href="#">Banquet Table Service</a></li>
+                                    <li><a href="#">Family Style Service</a></li>
+                                    <li><a href="#">Quick Delivery Service</a></li>
+                                    <li><a href="#">Buffet Table Service</a></li>
+                                    <li><a href="#">Traditional Counter Service</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 widget-area">
+                            <div class="widget widget_text clearfix">
+                                <h3 class="widget-title">Opening Hours</h3>
+                                <div class="textwidget widget-text">
+                                    <div class="ttm-pricelistbox-wrapper ">
+                                        <div class="ttm-timelist-block-wrapper">
+                                            <ul class="ttm-timelist-block">
+                                                <li><span> Mon - Fri </span>
+                                                    <p class="service-time">09:00am - 05:00pm</p>
+                                                </li>
+                                                <li><span> Sat - Sun </span>
+                                                    <p class="service-time">10:00am - 11:00pm</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <h3 class="widget-title">Coffee Bar Opening</h3>
+                                <div class="textwidget widget-text">
+                                    <div class="ttm-pricelistbox-wrapper ">
+                                        <div class="ttm-timelist-block-wrapper">
+                                            <ul class="ttm-timelist-block">
+                                                <li> <span> Mon - Fri </span>
+                                                    <p class="service-time">08:00am - 07:00pm</p>
+                                                </li>
+                                                <li> <span> Sat - Sun </span>
+                                                    <p class="service-time">08:00am - 09:00pm</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 widget-area">
+                            <div class="widget offer_widget text-center clearfix">
+                                <div class="">
+                                    <h3 class="font-sz-28 mb-0">GET <span class="ttm-textcolor-skincolor font-sz-47 mlr-10">20%</span> OFF</h3>
+                                    <p class="">special offer limited time</p>
+                                    <p class="pt-10 font-w-500 mb-5">OFFER CODE: <span class="ttm-textcolor-skincolor"><u>LUV1023</u></span></p>
+                                    <p class="font-sz-16 font-w-500 mb-0">Offers Ends 31St Octomber</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- footer -->
-    <!-- modal boxes -->
-    <div class="modal fade" id="address-box">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title fw-700">Change Address</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="location-picker">
-                        <input type="text" class="form-control" placeholder="Enter a new address">
+            <div class="bottom-footer-text ttm-bgcolor-darkgrey ttm-textcolor-white">
+                <div class="container">
+                    <div class="row copyright">
+                        <div class="col-md-12">
+                            <div class="">
+                                <span>Copyright © 2019 Zester HTML Template by <a href="https://themetechmount.com">ThemetechMount</a>.</span>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <ul id="menu-footer-menu" class="footer-nav-menu">
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Services</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="modal fade" id="search-box">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <div class="search-box p-relative full-width">
-                        <input type="text" class="form-control" placeholder="Pizza, Burger, Chinese">
-                    </div>
-                </div>
-                <div class="modal-body"></div>
-            </div>
-        </div>
-    </div>
-    <!-- Place all Scripts Here -->
-    <!-- jQuery -->
-    <script src="/js/jquery.min.js"></script>
-    <!-- Popper -->
-    <script src="/js/popper.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="/js/bootstrap.min.js"></script>
-    <!-- Range Slider -->
-    <script src="/js/ion.rangeSlider.min.js"></script>
-    <!-- Swiper Slider -->
-    <script src="/js/swiper.min.js"></script>
-    <!-- Nice Select -->
-    <script src="/js/jquery.nice-select.min.js"></script>
-    <!-- magnific popup -->
-    <script src="/js/jquery.magnific-popup.min.js"></script>
-    <!-- Maps -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnd9JwZvXty-1gHZihMoFhJtCXmHfeRQg"></script>
-    <!-- sticky sidebar -->
-    <script src="/js/sticksy.js"></script>
-    <!-- Munch Box Js -->
-    <script src="/js/foodmart.js"></script>
-    <!-- /Place all Scripts Here -->
+        </footer>
+        <!--footer end-->
+
+        <!--back-to-top start-->
+        <a id="totop" href="#top">
+            <i class="fa fa-angle-up"></i>
+        </a>
+        <!--back-to-top end-->
+
+    </div><!-- page end -->
+
+    <!-- Javascript -->
+
+    <script src="js\jquery.min.js"></script>
+    <script src="js\tether.min.js"></script>
+    <script src="js\bootstrap.min.js"></script>
+    <script src="js\jquery.easing.js"></script>
+    <script src="js\jquery-waypoints.js"></script>
+    <script src="js\jquery-validate.js"></script>
+    <script src="js\owl.carousel.js"></script>
+    <script src="js\jquery.prettyPhoto.js"></script>
+    <script src="js\numinate.min.js?ver=4.9.3"></script>
+    <script src="js\main.js"></script>
+
+    <!-- Javascript end-->
+
 </body>
 
 </html>

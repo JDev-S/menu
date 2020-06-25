@@ -1,126 +1,149 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('welcome')
+@section('contenido')
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="keywords" content="#">
-    <meta name="description" content="#">
-    <title>foodmart | Login</title>
-    <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="#">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="#">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="#">
-    <link rel="apple-touch-icon-precomposed" href="#">
-    <link rel="shortcut icon" href="#">
-    <!-- Bootstrap -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Fontawesome -->
-    <link href="/css/font-awesome.css" rel="stylesheet">
-    <!-- Flaticons -->
-    <link href="/css/flaticon.css" rel="stylesheet">
-    <!-- Swiper Slider -->
-    <link href="/css/swiper.min.css" rel="stylesheet">
-    <!-- Range Slider -->
-    <link href="/css/ion.rangeSlider.min.css" rel="stylesheet">
-    <!-- magnific popup -->
-    <link href="/css/magnific-popup.css" rel="stylesheet">
-    <!-- Nice Select -->
-    <link href="/css/nice-select.css" rel="stylesheet">
-    <!-- Custom Stylesheet -->
-    <link href="/css/style.css" rel="stylesheet">
-    <!-- Custom Responsive -->
-    <link href="/css/responsive.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
-    <!-- place -->
-</head>
 
-<body>
-    <div class="inner-wrapper">
-        <div class="container-fluid no-padding">
-            <div class="row no-gutters overflow-auto">
-                <div class="col-md-6">
-                    <div class="main-banner">
-                        <img src="/images/banner_registarse.jpg" class="img-fluid full-width main-img" alt="banner">
-                        <div class="overlay-2 main-padding">
-                            <img src="/images/logo-2.jpg" class="img-fluid" alt="logo">
-                        </div>
-                        <img src="/images/burger.png" class="footer-img" alt="footer-img">
+<div class="site-main">
+
+    <!-- contact-section -->
+    <section class="ttm-row contact-section clearfix">
+        <div class="container">
+            <div class="row no-gutters">
+                <!-- row -->
+                <div class="col-lg-8">
+                    <div class="spacing-9">
+                        <!-- section title -->
+                        <div class="section-title text-left clearfix">
+                            <div class="title-header mb-90">
+                                <h5>CONTACT WITH US</h5>
+                                <h2 class="title">Write Us A Message</h2>
+                            </div>
+                            <div class="heading-seperator">
+                                <span></span>
+                            </div>
+                        </div><!-- section title end -->
+                        <form id="ttm-quote-form" class="row ttm-quote-form clearfix style2" method="post" action="#">
+
+
+                            <div class="col-sm-6 col-md-12">
+                                <div class="form-group">
+                                    <input name="address" type="email" placeholder="Email Address" required="required" class="form-control with-grey-bg">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 col-md-12">
+                                <div class="form-group">
+                                    <input name="phone" type="text" placeholder="Phone Number" required="required" class="form-control with-grey-bg">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group text-left">
+                                    <button type="submit" id="submit" class="ttm-btn ttm-btn-size-md ttm-btn-bgcolor-skincolor" value="">
+                                        Send A Message
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="section-2 user-page main-padding">
-                        <div class="login-sec">
-                            <div class="login-box">
-                                <form>
-                                    <h4 class="text-light-black fw-600">Inicia sesión</h4>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <p class="text-light-black">Have a corporate username? <a href="add-restaurant.html">Click here</a>
-                                            </p>
-                                            <div class="form-group">
-                                                <label class="text-light-white fs-14">Correo electronico</label>
-                                                <input type="email" name="#" class="form-control form-control-submit" placeholder="Correo electronico" required>
+                <div class="col-lg-4">
+                    <!-- col-bg-img-two -->
+                    <div class="ttm-bgcolor-grey ttm-bg ttm-col-bgimage-yes ttm-right-span spacing-10">
+                        <div class="ttm-col-wrapper-bg-layer ttm-bg-layer">
+                            <div class="ttm-bg-layer-inner"></div>
+                        </div>
+                        <div class="layer-content">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <!-- featured-icon-box-->
+                                    <div class="featured-icon-box left-icon style4">
+                                        <div class="featured-icon">
+                                            <!-- featured-icon-->
+                                            <div class="ttm-icon ttm-icon_element-background-color-grey ttm-icon_element-size-md ttm-icon_element-style-round">
+                                                <i class="ti ti-location-pin"></i>
                                             </div>
-                                            <div class="form-group">
-                                                <label class="text-light-white fs-14">Contraseña</label>
-                                                <input type="password" id="password-field" name="#" class="form-control form-control-submit" value="password" placeholder="Password" required>
-                                                <div data-name="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></div>
+                                        </div><!-- featured-icon -->
+                                        <div class="featured-content">
+                                            <!-- featured-content -->
+                                            <div class="featured-title">
+                                                <!-- featured-title -->
+                                                <h4>Address</h4>
                                             </div>
-                                            <div class="form-group checkbox-reset">
-                                                <label class="custom-checkbox mb-0">
-                                                    <input type="checkbox" name="#"> <span class="checkmark"></span> Keep me signed in</label> <a href="#">Reset password</a>
+                                            <div class="featured-desc">
+                                                <!-- featured-desc -->
+                                                <p class="mb-0">4525 Smitheh Avenu JK 79 452</p>
                                             </div>
-                                            <div class="form-group">
-                                                <button type="submit" class="btn-second btn-submit full-width">
-                                                    <img src="/images/M.png" alt="btn logo">Iniciar sesión</button>
+                                        </div><!-- featured-content -->
+                                    </div><!-- featured-icon-box end-->
+                                </div>
+                                <div class="col-md-12">
+                                    <!-- featured-icon-box-->
+                                    <div class="featured-icon-box left-icon style4">
+                                        <div class="featured-icon">
+                                            <!-- featured-icon-->
+                                            <div class="ttm-icon ttm-icon_element-background-color-grey ttm-icon_element-size-md ttm-icon_element-style-round">
+                                                <i class="ti ti-headphone-alt"></i>
                                             </div>
-                                            <div class="form-group text-center"> <span>o</span>
+                                        </div><!-- featured-icon -->
+                                        <div class="featured-content">
+                                            <!-- featured-content -->
+                                            <div class="featured-title">
+                                                <!-- featured-title -->
+                                                <h4>Call-Us</h4>
                                             </div>
-                                            <div class="form-group">
-                                                <button type="submit" class="btn-second btn-facebook full-width">
-                                                    <img src="/images/facebook-logo.svg" alt="btn logo">Continuar con Facebook</button>
+                                            <div class="featured-desc">
+                                                <!-- featured-desc -->
+                                                <p class="mb-0">+1800-200-123456</p>
                                             </div>
-                                            <div class="form-group">
-                                                <button type="submit" class="btn-second btn-google full-width">
-                                                    <img src="/images/google-logo.png" alt="btn logo">Continuar con Google</button>
+                                        </div><!-- featured-content -->
+                                    </div><!-- featured-icon-box end-->
+                                </div>
+                                <div class="col-md-12">
+                                    <!-- featured-icon-box-->
+                                    <div class="featured-icon-box left-icon style4">
+                                        <div class="featured-icon">
+                                            <!-- featured-icon-->
+                                            <div class="ttm-icon ttm-icon_element-background-color-grey ttm-icon_element-size-md ttm-icon_element-style-round">
+                                                <i class="ti ti-email"></i>
                                             </div>
-                                            <div class="form-group text-center mb-0"> <a href="/registrarse">Crear cuenta</a>
+                                        </div><!-- featured-icon -->
+                                        <div class="featured-content">
+                                            <!-- featured-content -->
+                                            <div class="featured-title">
+                                                <!-- featured-title -->
+                                                <h4>Email</h4>
                                             </div>
-                                        </div>
-                                    </div>
-                                </form>
+                                            <div class="featured-desc">
+                                                <!-- featured-desc -->
+                                                <p class="mb-0">info@example.com</p>
+                                            </div>
+                                        </div><!-- featured-content -->
+                                    </div><!-- featured-icon-box end-->
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div><!-- row end-->
+        </div>
+    </section>
+    <!-- contact-section -->
+
+    <!-- map-section -->
+    <div class="ttm-row map-section clearfix">
+        <div class="container-fluid p-0">
+            <div class="row">
+                <div class="col-md-12">
+                    <!--map-start-->
+                    <div class="map-wrapper">
+                        <div id="map_canvas"></div>
+                    </div>
+                    <!--map-end-->
+                </div>
             </div>
         </div>
     </div>
-    <!-- Place all Scripts Here -->
-    <!-- jQuery -->
-    <script src="/js/jquery.min.js"></script>
-    <!-- Popper -->
-    <script src="/js/popper.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="/js/bootstrap.min.js"></script>
-    <!-- Range Slider -->
-    <script src="/js/ion.rangeSlider.min.js"></script>
-    <!-- Swiper Slider -->
-    <script src="/js/swiper.min.js"></script>
-    <!-- Nice Select -->
-    <script src="/js/jquery.nice-select.min.js"></script>
-    <!-- magnific popup -->
-    <script src="/js/jquery.magnific-popup.min.js"></script>
-    <!-- Maps -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnd9JwZvXty-1gHZihMoFhJtCXmHfeRQg"></script>
-    <!-- sticky sidebar -->
-    <script src="/js/sticksy.js"></script>
-    <!-- Munch Box Js -->
-    <script src="/js/foodmart.js"></script>
-    <!-- /Place all Scripts Here -->
-</body>
+    <!-- map-section end -->
 
-</html>
+</div>
+@stop
