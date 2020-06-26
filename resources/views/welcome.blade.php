@@ -11,40 +11,40 @@
     <title>Zester - Restaurant and Cafe HTML Template</title>
 
     <!-- favicon icon -->
-    <link rel="shortcut icon" href="images\favicon.png">
+    <link rel="shortcut icon" href="\images\favicon.png">
 
     <!-- bootstrap -->
-    <link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="\css\bootstrap.min.css">
 
     <!-- animate -->
-    <link rel="stylesheet" type="text/css" href="css\animate.css">
+    <link rel="stylesheet" type="text/css" href="\css\animate.css">
 
-    <link rel="stylesheet" type="text/css" href="css\animate.min.css">
+    <link rel="stylesheet" type="text/css" href="\css\animate.min.css">
 
 
     <!-- owl-carousel -->
-    <link rel="stylesheet" type="text/css" href="css\owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="\css\owl.carousel.css">
 
     <!-- fontawesome -->
-    <link rel="stylesheet" type="text/css" href="css\font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="\css\font-awesome.css">
 
     <!-- themify -->
-    <link rel="stylesheet" type="text/css" href="css\themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="\css\themify-icons.css">
 
     <!-- flaticon -->
-    <link rel="stylesheet" type="text/css" href="css\flaticon.css">
+    <link rel="stylesheet" type="text/css" href="\css\flaticon.css">
 
     <!-- prettyphoto -->
-    <link rel="stylesheet" type="text/css" href="css\prettyPhoto.css">
+    <link rel="stylesheet" type="text/css" href="\css\prettyPhoto.css">
 
     <!-- shortcodes -->
-    <link rel="stylesheet" type="text/css" href="css\shortcodes.css">
+    <link rel="stylesheet" type="text/css" href="\css\shortcodes.css">
 
     <!-- main -->
-    <link rel="stylesheet" type="text/css" href="css\main.css">
+    <link rel="stylesheet" type="text/css" href="\css\main.css">
 
     <!-- responsive -->
-    <link rel="stylesheet" type="text/css" href="css\responsive.css">
+    <link rel="stylesheet" type="text/css" href="\css\responsive.css">
 
 
 
@@ -66,8 +66,8 @@
                             <div class="container-fluid">
                                 <!-- site-branding -->
                                 <div class="site-branding">
-                                    <a class="home-link" href="index.html" title="Zester" rel="home">
-                                        <img id="logo-img" class="img-center" src="images\logo-white.png" alt="logo-img">
+                                    <a class="home-link" href="/?pagina" title="Zester" rel="home">
+                                        <img id="logo-img" class="img-center" src="\images\logo-white.png" alt="logo-img">
                                     </a>
                                 </div><!-- site-branding end -->
                                 <!--site-navigation -->
@@ -140,16 +140,16 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="title-box">
-                            <div class="page-title-heading">
+                            <!--<div class="page-title-heading">
                                 <h1 class="title"> Products</h1>
-                            </div><!-- /.page-title-captions -->
-                            <div class="breadcrumb-wrapper">
+                            </div>--><!-- /.page-title-captions -->
+                            <!--<div class="breadcrumb-wrapper">
                                 <span>
                                     <a title="Homepage" href="index.html">Home</a>
                                 </span>
                                 <span class="ttm-bread-sep"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
                                 <span><span>Shop</span></span>
-                            </div>
+                            </div>-->
                         </div>
                     </div><!-- /.col-md-12 -->
                 </div><!-- /.row -->
@@ -157,13 +157,7 @@
         </div>
         <!-- page-title END-->
 
-
         @yield('contenido')
-
-
-
-
-
 
         <!--footer start-->
         <footer class="footer widget-footer ttm-bgcolor-darkgrey ttm-bg ttm-bgimage-yes bg-img1 clearfix">
@@ -196,7 +190,7 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 widget-area">
                             <div class="widget contact-widget">
-                                <h3 class="widget-title">Contact Us</h3>
+                                <h3 class="widget-title">Contacto</h3>
                                 <ul class="contact-widget-wrapper">
                                     <li><i class="fa fa-map-marker"></i>Themeforest, Envanto HQ 24 Fifth st., Los Angeles, USA</li>
                                     <li><i class="fa fa-envelope-o"></i><a href="mailto:info@example.com" target="_blank">info@example.com</a></li>
@@ -206,15 +200,15 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 widget-area">
                             <div class="widget link-widget clearfix">
-                                <h3 class="widget-title">Our Services</h3>
+                                <h3 class="widget-title">Links rápidos</h3>
                                 <ul id="menu-footer-services">
-                                    <li><a href="#">Fine Dining & Concierge</a></li>
-                                    <li><a href="#">Quick Counter Service</a></li>
-                                    <li><a href="#">Banquet Table Service</a></li>
-                                    <li><a href="#">Family Style Service</a></li>
-                                    <li><a href="#">Quick Delivery Service</a></li>
+                                    <li><a href="/">Inicio</a></li>
+                                    <li><a href="/acerca_de">Acerca de </a></li>
+                                    <li><a href="/contacto">Contacto</a></li>
+                                    <li><a href="/login">Iniciar sesión</a></li>
+                                    <!--<li><a href="#">Quick Delivery Service</a></li>
                                     <li><a href="#">Buffet Table Service</a></li>
-                                    <li><a href="#">Traditional Counter Service</a></li>
+                                    <li><a href="#">Traditional Counter Service</a></li>-->
                                 </ul>
                             </div>
                         </div>
@@ -271,16 +265,12 @@
                     <div class="row copyright">
                         <div class="col-md-12">
                             <div class="">
-                                <span>Copyright © 2019 Zester HTML Template by <a href="https://themetechmount.com">ThemetechMount</a>.</span>
+                                <span>Copyright ©  <?php
+                        $fecha = date('Y');
+                        echo $fecha;?>  Desarrollado por <a href="https://jdevs.com.mx/">JDev-S</a>.</span>
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <ul id="menu-footer-menu" class="footer-nav-menu">
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Services</a></li>
-                                <li><a href="#">Privacy</a></li>
-                            </ul>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -297,16 +287,16 @@
 
     <!-- Javascript -->
 
-    <script src="js\jquery.min.js"></script>
-    <script src="js\tether.min.js"></script>
-    <script src="js\bootstrap.min.js"></script>
-    <script src="js\jquery.easing.js"></script>
-    <script src="js\jquery-waypoints.js"></script>
-    <script src="js\jquery-validate.js"></script>
-    <script src="js\owl.carousel.js"></script>
-    <script src="js\jquery.prettyPhoto.js"></script>
-    <script src="js\numinate.min.js?ver=4.9.3"></script>
-    <script src="js\main.js"></script>
+    <script src="\js\jquery.min.js"></script>
+    <script src="\js\tether.min.js"></script>
+    <script src="\js\bootstrap.min.js"></script>
+    <script src="\js\jquery.easing.js"></script>
+    <script src="\js\jquery-waypoints.js"></script>
+    <script src="\js\jquery-validate.js"></script>
+    <script src="\js\owl.carousel.js"></script>
+    <script src="\js\jquery.prettyPhoto.js"></script>
+    <script src="\js\numinate.min.js?ver=4.9.3"></script>
+    <script src="\js\main.js"></script>
 
     <!-- Javascript end-->
 

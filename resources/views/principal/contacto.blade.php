@@ -14,43 +14,45 @@
                         <!-- section title -->
                         <div class="section-title text-left clearfix">
                             <div class="title-header mb-90">
-                                <h5>CONTACT WITH US</h5>
-                                <h2 class="title">Write Us A Message</h2>
+                                <h5>Contacto</h5>
+                                <h2 class="title">Escríbenos</h2>
                             </div>
                             <div class="heading-seperator">
                                 <span></span>
                             </div>
                         </div><!-- section title end -->
-                        <form id="ttm-quote-form" class="row ttm-quote-form clearfix style2" method="post" action="#">
+                        <form  class="row ttm-quote-form clearfix style2" method="POST" action={{route('contact')}}>
+                            {{ csrf_field() }}
+                            
                             <div class="col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <input name="name" type="text" class="form-control with-grey-bg" placeholder="Full Name" required="required">
+                                    <input name="nombre" type="text" class="form-control with-grey-bg" placeholder="Nombre completo" required="required">
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <input name="phone" type="text" placeholder="Phone Number" required="required" class="form-control with-grey-bg">
+                                    <input name="telefono" type="text" placeholder="Numero telefonico" required="required" class="form-control with-grey-bg">
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <input name="address" type="text" placeholder="Email Address" required="required" class="form-control with-grey-bg">
+                                    <input name="correo" type="email" placeholder="Correo electronico" required="required" class="form-control with-grey-bg">
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <input name="subject" type="text" placeholder="Subject" required="required" class="form-control with-grey-bg">
+                                    <input name="tema" type="text" placeholder="Titulo del problema" required="required" class="form-control with-grey-bg">
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <textarea name="Massage" rows="5" placeholder="Write A Massage..." required="required" class="form-control with-grey-bg"></textarea>
+                                    <textarea name="descripcion" rows="5" placeholder="Describe el problema" required="required" class="form-control with-grey-bg"></textarea>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group text-left">
                                     <button type="submit" id="submit" class="ttm-btn ttm-btn-size-md ttm-btn-bgcolor-skincolor" value="">
-                                        Send A Message
+                                        Enviar mensaje!!
                                     </button>
                                 </div>
                             </div>

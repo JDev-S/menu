@@ -26,17 +26,7 @@
 
                             <div class="summary entry-summary">
                                 <h3 class="singel_product_title">{{$info[0]->nombre_alimento}}</h3>
-                                <div class="product-rating clearfix">
-                                    <div class="ttm-ratting-star">
-                                        <!-- ratting-star -->
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <a href="#reviews" class="review-link" rel="nofollow">(<span class="count">1</span> customer review)</a>
-                                </div>
+
                                 <p class="price">
                                     <span class="Price-amount amount">
                                         <span class="Price-currencySymbol">$</span>{{$info[0]->precio}}
@@ -49,12 +39,12 @@
                                     <div class="quantity"><label class="screen-reader-text">Cantidad</label>
                                         <input type="number" id="quantity" class="form-control qty text" step="1" min="1" max="50" name="quantity" value="1" title="Qty">
                                     </div>
-                                    <button id="go" name="add-to-cart" type="submit" class="cart_button ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-bgcolor-darkgrey" title="Submit now">Add to cart</button>
+                                    <button id="go" name="add-to-cart" type="submit" class="cart_button ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-bgcolor-darkgrey" title="Submit now">Agregar al carro</button>
                                 </form>
                                 <div class="add-to-wishlist yith-wcwl-add-to-wishlist">
                                     <ul>
-                                        <li><a href="#"><i class="fa fa-heart-o"></i>Add to Wishlist</a></li>
-                                        <li><a href="#"><i class="fa fa-thumb-tack"></i>Compare</a></li>
+                                        <li><a href="#"><i class="fa fa-heart-o"></i>Agregar a favoritos</a></li>
+                                        
                                     </ul>
                                 </div>
                                 <div class="product_meta">
@@ -73,14 +63,15 @@
                         </div>
                     </div>
                     <div class="related products">
-                        <h3>Related products</h3>
+                        <h3>Platillos nuevos</h3>
                         <div class="row">
+                            @foreach($ultimos as $ultimo)
                             <div class="col-lg-4 col-md-4 col-sm-6">
                                 <div class="product">
                                     <!-- product -->
                                     <div class="product-thumbnail">
                                         <!-- product-thumbnail -->
-                                        <img class="img-fluid w-100" src="images\product\product-one.jpg" alt="">
+                                        <img class="img-fluid w-100" src='{{$ultimo->fotografia_miniatura}}' alt="">
                                         <div class="ttm-shop-icon">
                                             <!-- ttm-shop-icon -->
                                             <div class="product-btn"><a href="#" class="add-to-cart-btn"><i class="ti ti-heart"></i></a></div>
@@ -92,121 +83,53 @@
                                         <!-- product-content -->
                                         <div class="product-title">
                                             <!-- product-title -->
-                                            <h2><a href="product-details.html">Broccoli Soup</a></h2>
+                                            <h2><a href='/detalle_producto?platillo={{$ultimo->id_alimento}}'>{{$ultimo->nombre_alimento}}</a></h2>
                                         </div>
                                         <div class="ttm-ratting-star">
-                                            <!-- ratting-star -->
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
+                                            <span class="product-price">
+                                                <!-- product-Price -->
+                                                <span class="product-Price-currencySymbol">Categoria</span>{{$ultimo->nombre_categoria}}
+                                            </span>
                                         </div>
                                         <span class="product-price">
                                             <!-- product-Price -->
-                                            <span class="product-Price-currencySymbol">$</span>16.00
+                                            <span class="product-Price-currencySymbol">$</span>{{$ultimo->precio}}
                                         </span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <div class="product">
-                                    <!-- product -->
-                                    <div class="product-thumbnail">
-                                        <!-- product-thumbnail -->
-                                        <img class="img-fluid w-100" src="images\product\product-two.jpg" alt="">
-                                        <div class="ttm-shop-icon">
-                                            <!-- ttm-shop-icon -->
-                                            <div class="product-btn"><a href="#" class="add-to-cart-btn"><i class="ti ti-heart"></i></a></div>
-                                            <div class="product-btn"><a href="#" class="search-btn"><i class="ti ti-search"></i></a></div>
-                                            <div class="product-btn"><a href="#" class="cart-btn"><i class="ti ti-shopping-cart"></i></a></div>
-                                        </div>
-                                    </div><!-- product-thumbnail end -->
-                                    <div class="product-content text-center">
-                                        <!-- product-content -->
-                                        <div class="product-title">
-                                            <!-- product-title -->
-                                            <h2><a href="product-details.html">Royal Veg Burger</a></h2>
-                                        </div>
-                                        <div class="ttm-ratting-star">
-                                            <!-- ratting-star -->
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <span class="product-price">
-                                            <!-- product-Price -->
-                                            <span class="product-Price-currencySymbol">$</span>20.00
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <div class="product">
-                                    <!-- product -->
-                                    <div class="product-thumbnail">
-                                        <!-- product-thumbnail -->
-                                        <img class="img-fluid w-100" src="images\product\product-three.jpg" alt="">
-                                        <div class="ttm-shop-icon">
-                                            <!-- ttm-shop-icon -->
-                                            <div class="product-btn"><a href="#" class="add-to-cart-btn"><i class="ti ti-heart"></i></a></div>
-                                            <div class="product-btn"><a href="#" class="search-btn"><i class="ti ti-search"></i></a></div>
-                                            <div class="product-btn"><a href="#" class="cart-btn"><i class="ti ti-shopping-cart"></i></a></div>
-                                        </div>
-                                    </div><!-- product-thumbnail end -->
-                                    <div class="product-content text-center">
-                                        <!-- product-content -->
-                                        <div class="product-title">
-                                            <!-- product-title -->
-                                            <h2><a href="product-details.html">Mexican Pie</a></h2>
-                                        </div>
-                                        <div class="ttm-ratting-star">
-                                            <!-- ratting-star -->
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <span class="product-price">
-                                            <!-- product-Price -->
-                                            <span class="product-Price-currencySymbol">$</span>33.00
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
+
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 widget-area sidebar-right">
-                    <aside class="widget widget-search">
-                        <form role="search" method="get" class="search-form" action="#">
-                            <div class="form-group">
-                                <i class="fa fa-search"></i>
-                                <input type="search" class="form-control" placeholder="Search Product …" value="" name="s">
-                            </div>
-                        </form>
-                    </aside>
-                    <aside class="widget widget-categories">
-                        <h3 class="widget-title">Product Categories</h3>
-                        <ul>
-                            <li><a href="#">Culinary Traveller</a></li>
-                            <li><a href="#">Dessert</a></li>
-                            <li><a href="#">Events</a></li>
-                            <li><a href="#">Food Lover</a></li>
-                            <li><a href="#">Miscellaneous</a></li>
-                            <li><a href="#">Recipes</a></li>
+                    <aside class="widget products widget-top-rated-products">
+                        <h3 class="widget-title">Platillos mas vendidos</h3>
+                        <ul class="">
+                            @foreach($vendidos as $vendido)
+                            <li class="clearfix">
+                                <a href="/detalle_producto?platillo={{$vendido->id_alimento}}"><img src='{{$vendido->fotografia_miniatura}}' alt="">
+                                    <span class="product-title">{{$vendido->nombre_alimento}}</span>
+                                </a>
+                                <div class="ttm-ratting-star">
+                                     <span class="product-Price-amount amount"><span class="product-Price-currencySymbol">Categoria : </span>{{$vendido->nombre_categoria}}</span>
+                                   
+                                </div>
+                                <span class="product-Price-amount amount"><span class="product-Price-currencySymbol">$</span>{{$vendido->precio}}</span>
+                            </li>
+                            @endforeach
                         </ul>
                     </aside>
+
                     <aside class="widget products widget-top-rated-products">
-                        <h3 class="widget-title">Popular Dishes</h3>
+                        <h3 class="widget-title">Mis ultimas compras</h3>
                         <ul class="">
+                            @foreach($compras as $compra)
                             <li class="clearfix">
-                                <a href="#"><img src="images\product\product-one.jpg" alt="">
-                                    <span class="product-title">Royal Veg Burger</span>
-                                </a>
+                                <img src='{{$compra->fotografia_miniatura}}' alt="img_platillo">
+                                <a href="/detalle_producto?platillo={{$compra->id_alimento}}"><span class="product-title">{{$compra->nombre_alimento}}</span></a>
+
                                 <div class="ttm-ratting-star">
                                     <!-- ratting-star -->
                                     <i class="fa fa-star"></i>
@@ -215,22 +138,9 @@
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
                                 </div>
-                                <span class="product-Price-amount amount"><span class="product-Price-currencySymbol">$</span>33.00</span>
+                                <span class="product-Price-amount amount"><span class="product-Price-currencySymbol">$</span>{{$compra->precio}}</span>
                             </li>
-                            <li class="clearfix">
-                                <a href="#"><img src="images\product\product-two.jpg" alt="">
-                                    <span class="product-title">Broccoli Soup</span>
-                                </a>
-                                <div class="ttm-ratting-star">
-                                    <!-- ratting-star -->
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <span class="product-Price-amount amount"><span class="product-Price-currencySymbol">$</span>33.00</span>
-                            </li>
+                            @endforeach
                         </ul>
                     </aside>
                 </div>

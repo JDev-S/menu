@@ -21,18 +21,19 @@
                                 <span></span>
                             </div>
                         </div><!-- section title end -->
-                        <form id="ttm-quote-form" class="row ttm-quote-form clearfix style2" method="post" action="#">
+                        <form id="ttm-quote-form" class="row ttm-quote-form clearfix style2" method="POST" action={{route('iniciar_sesion')}}>
+                            {{ csrf_field() }}
 
 
                             <div class="col-sm-6 col-md-12">
                                 <div class="form-group">
-                                    <input name="address" type="email" placeholder="Email Address" required="required" class="form-control with-grey-bg">
+                                    <input name="correo" type="email" placeholder="Correo electronico" required="required" class="form-control with-grey-bg">
                                 </div>
                             </div>
 
                             <div class="col-sm-6 col-md-12">
                                 <div class="form-group">
-                                    <input name="phone" type="text" placeholder="Phone Number" required="required" class="form-control with-grey-bg">
+                                    <input name="password" type="password" placeholder="Password" required="required" class="form-control with-grey-bg">
                                 </div>
                             </div>
 

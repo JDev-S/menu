@@ -14,20 +14,29 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/','AlimentosController@principal_index');
+Route::get('/index/{pagina?}/{categoria?}','AlimentosController@principal_index')->name("index");
 
-Route::get('/contacto', function () {
-    return view('/principal/contacto');
+Route::get('/',function(){
+    return redirect()->route("index");
 });
 
 Route::get('/acerca_de', function () {
     return view('/principal/acerca_de');
 });
+/*CONTACTO*/
+Route::get('/contacto', function () {
+    return view('/principal/contacto');
+});
+Route::post('/contactar', 'EmailController@contact')->name('contact');
+////////////////////////////////////////////////////////////////////////////////7
 
+/*LOGUEARSE*/
 Route::get('/login', function () {
     return view('/principal/login');
 });
 
+Route::post('/iniciar_sesion', 'UsuarioController@iniciar_sesion')->name('iniciar_sesion');
+/////////////////////////////////////////////////////////////////////////////////
 Route::get('/detalle_producto','AlimentosController@info_platillo');
 
 Route::get('/registrarse', function () {

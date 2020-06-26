@@ -117,4 +117,46 @@ class UsuarioController extends Controller
         return redirect()->action('UsuarioController@usuarios_mostrar')->withInput();
 	}
     
+    public function iniciar_sesion(Request $input)
+    {
+        $correo = $input['correo'];
+        $password = $input['password'];
+        
+   
+    
+    $query = "select * from usuario where usuario.correo='$correo'";
+        $data=DB::select($query);
+        $cantidad= sizeof($data);
+
+        if($cantidad>0)
+        {
+            $query2 = "select usuario.contraseña,usuario.correo from usuario where correo='$correo'";
+            $data2=DB::select($query2);
+
+            
+            //if (Hash::check($contrasenia, $data2[0]->contraseña)) {
+            if($password==$data2[0]->contraseña){
+           //echo 'essta registrado';
+            //Session::put('nombre_usuario',$nombre_usuario);
+            //Session::put('contraseña',$contrasenia);
+            //$correo=Session::get('nombre_usuario');
+            //$pass=Session::get('contraseña');
+            
+           //return redirect('/Admin_clientes');
+                echo 'Entro';
+                
+            }else{
+                //return redirect('/iniciar_sesion');
+                echo 'No es la misma contraseña del usuario';
+            }   
+
+        }
+        else{
+            //return redirect('/iniciar_sesion');
+            echo 'No existe ese usuario';
+        }
+    }
+        
+
+    
 }
