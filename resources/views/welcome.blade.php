@@ -142,7 +142,8 @@
                         <div class="title-box">
                             <!--<div class="page-title-heading">
                                 <h1 class="title"> Products</h1>
-                            </div>--><!-- /.page-title-captions -->
+                            </div>-->
+                            <!-- /.page-title-captions -->
                             <!--<div class="breadcrumb-wrapper">
                                 <span>
                                     <a title="Homepage" href="index.html">Home</a>
@@ -214,37 +215,26 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 widget-area">
                             <div class="widget widget_text clearfix">
-                                <h3 class="widget-title">Opening Hours</h3>
+                                <h3 class="widget-title">Horario</h3>
                                 <div class="textwidget widget-text">
                                     <div class="ttm-pricelistbox-wrapper ">
                                         <div class="ttm-timelist-block-wrapper">
                                             <ul class="ttm-timelist-block">
-                                                <li><span> Mon - Fri </span>
-                                                    <p class="service-time">09:00am - 05:00pm</p>
-                                                </li>
-                                                <li><span> Sat - Sun </span>
-                                                    <p class="service-time">10:00am - 11:00pm</p>
-                                                </li>
+                                                <?php
+                                                 $horarios = DB::select(" select * from horario ");
+                                                 foreach($horarios as $horario)
+                                                {
+                                                
+                                                    echo '<li><span>'.$horario->dia,' </span>
+                                                    <p class="service-time">'.$horario->hora_inicial.' am - '.$horario->hora_final.' pm'.'</p>
+                                                    </li>';
+                                                }
+                                                ?>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                                 <br>
-                                <h3 class="widget-title">Coffee Bar Opening</h3>
-                                <div class="textwidget widget-text">
-                                    <div class="ttm-pricelistbox-wrapper ">
-                                        <div class="ttm-timelist-block-wrapper">
-                                            <ul class="ttm-timelist-block">
-                                                <li> <span> Mon - Fri </span>
-                                                    <p class="service-time">08:00am - 07:00pm</p>
-                                                </li>
-                                                <li> <span> Sat - Sun </span>
-                                                    <p class="service-time">08:00am - 09:00pm</p>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 widget-area">
@@ -265,9 +255,9 @@
                     <div class="row copyright">
                         <div class="col-md-12">
                             <div class="">
-                                <span>Copyright ©  <?php
+                                <span>Copyright © <?php
                         $fecha = date('Y');
-                        echo $fecha;?>  Desarrollado por <a href="https://jdevs.com.mx/">JDev-S</a>.</span>
+                        echo $fecha;?> Desarrollado por <a href="https://jdevs.com.mx/">JDev-S</a>.</span>
                             </div>
                         </div>
 
@@ -298,6 +288,7 @@
     <script src="\js\numinate.min.js?ver=4.9.3"></script>
     <script src="\js\main.js"></script>
 
+    @yield('scripts')
     <!-- Javascript end-->
 
 </body>

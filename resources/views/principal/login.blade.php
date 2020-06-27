@@ -14,8 +14,7 @@
                         <!-- section title -->
                         <div class="section-title text-left clearfix">
                             <div class="title-header mb-90">
-                                <h5>CONTACT WITH US</h5>
-                                <h2 class="title">Write Us A Message</h2>
+                                <h2 class="title">Iniciar sesión</h2>
                             </div>
                             <div class="heading-seperator">
                                 <span></span>

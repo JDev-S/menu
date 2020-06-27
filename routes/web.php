@@ -14,11 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/index/{pagina?}/{categoria?}','AlimentosController@principal_index')->name("index");
+Route::get('/index/{pagina?}/{categoria?}/{buscar?}','AlimentosController@principal_index')->name("index");
 
 Route::get('/',function(){
     return redirect()->route("index");
 });
+
 
 Route::get('/acerca_de', function () {
     return view('/principal/acerca_de');
@@ -141,3 +142,10 @@ Route::post('/admin_direccioneseliminar','DireccionController@eliminar')->name('
 Route::post('/admin_direccionesingresar','DireccionController@insertar')->name('admin_direccionesingresar');
 
 Route::post('/admin_direccionesactualizar','DireccionController@actualizar')->name('admin_direccionesactualizar');
+
+/*Administrador Horario*/
+
+Route::get('/admin_horario','HorarioController@horario_mostrar');
+
+//Route::get('/Admin_horario_editar','HorarioController@horario_editar')->middleware('admin:1')->name('Admin_horario_editar');
+Route::post('/admin_horario_editar','HorarioController@actualizar');

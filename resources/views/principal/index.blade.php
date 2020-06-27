@@ -162,12 +162,11 @@
                 </div>
                 <div class="col-lg-4 widget-area sidebar-right">
                     <aside class="widget widget-search">
-                        <form role="search" method="get" class="search-form  box-shadow" action="#">
-                            <div class="form-group">
-                                <i class="fa fa-search"></i>
-                                <input type="search" class="form-control" placeholder="Search Product …" value="" name="s">
-                            </div>
-                        </form>
+
+                        <div class="form-group">
+                            <i class="fa fa-search"></i>
+                            <input type="search" class="form-control" placeholder="Buscar platillo …" value="" id="buscar" name="buscar" onkeypress="pulsar(event)">
+                        </div>
                     </aside>
                     <aside class="widget widget-categories">
                         <h3 class="widget-title">Categorias</h3>
@@ -186,14 +185,7 @@
                                 <a href='/detalle_producto?platillo={{$alimento_favorito->id_alimento}}'><img src="{{$alimento_favorito->fotografia_miniatura}}" alt="">
                                     <span class="product-title"><a href='/detalle_producto?platillo={{$alimento_favorito->id_alimento}}'>{{$alimento_favorito->nombre_alimento}}</a></span>
                                 </a>
-                                <div class="ttm-ratting-star">
-                                    <!-- href="" ratting-star --></a>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
+
                                 <span class="product-Price-amount amount"><span class="product-Price-currencySymbol">Precio: ${{$alimento_favorito->precio}}</span></span>
                             </li>
                             @endforeach
@@ -208,7 +200,29 @@
 
 </div>
 <!--site-main end-->
+@section('scripts')
+<script type="text/javascript">
+    function pulsar(e) {
+        if (e.keyCode === 13 && !e.shiftKey) {
+            e.preventDefault();
+            var cod = document.getElementById("buscar").value;
+            //alert(cod);
+            var url = "/index/1/''/"+cod;
+            //alert(url);
+            location.href=url;
+            /*$.ajax({
+                method: "GET",
+                url: url,
+                dataType: "json",
+                success: function(data) {
+                  alert(data);
 
+                }
+            });*/
 
+        }
+    }
 
+</script>
+@stop
 @stop
