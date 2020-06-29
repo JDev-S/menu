@@ -69,89 +69,129 @@
                                 <?php
                        $paginacion= $numero_platillos[0]->numero_platillos/9;
                        $paginacion=ceil($paginacion); 
-                       
-                                if(empty($categoria))
-                                {
-                                    
-                       if($pagina>1)
-                       {
-                           if($pagina>$paginacion)
-                           {
-                               //echo'<li><a href="/'.$paginacion.'">«</a></li>';
-                               echo '<a class="next page-numbers" href="/index/'.$paginacion.'/"><i class="ti ti-arrow-left"></i></a>';
-                           }
-                           else
-                           {
-                               //echo'<li><a href="/'.($pagina-1).'">«</a></li>';
-                               echo '<a class="next page-numbers" href="/index/'.($pagina-1).'/"><i class="ti ti-arrow-left"></i></a>';
-                           }
-
-                       }                
-
-                       for($i=1;$i<=ceil($numero_platillos[0]->numero_platillos/9);$i++)
-                       {
-                           if($i==$pagina)
-                           {
-                               //echo'<li class="active"><a  href="/'.$i.'">'.$i.'</a></li>';
-                               echo '<span class="page-numbers current"><a  href="/index/'.$i.'/">'.$i.'</a></span>';
-
-                           }
-                           else
-                           {
-                               //echo'<li><a  href="/'.$i.'">'.$i.'</a></li>';
-                                echo '<a class="page-numbers" href="/index/'.$i.'/">'.$i.'</a>';
-                           }
-
-                       }
-
-                       if($pagina<$paginacion)
-                       {
-                           //echo'<li><a href="/'.($pagina+1).'">»</a></li>';
-                            echo '<a class="next page-numbers" href="/index/'.($pagina+1).'/"><i class="ti ti-arrow-right"></i></a>';
-                       }
-                  
-                }
-                else
+                    if(empty($buscar))
                     {
-                                    
-                       if($pagina>1)
-                       {
-                           if($pagina>$paginacion)
+                            if(empty($categoria))
+                        {
+
+                           if($pagina>1)
                            {
-                               //echo'<li><a href="/'.$paginacion.'">«</a></li>';
-                               echo '<a class="next page-numbers" href="/index/'.$paginacion.'/'.$categoria.'"><i class="ti ti-arrow-left"></i></a>';
-                           }
-                           else
+                               if($pagina>$paginacion)
+                               {
+                                   //echo'<li><a href="/'.$paginacion.'">«</a></li>';
+                                   echo '<a class="next page-numbers" href="/index/'.$paginacion.'/"><i class="ti ti-arrow-left"></i></a>';
+                               }
+                               else
+                               {
+                                   //echo'<li><a href="/'.($pagina-1).'">«</a></li>';
+                                   echo '<a class="next page-numbers" href="/index/'.($pagina-1).'/"><i class="ti ti-arrow-left"></i></a>';
+                               }
+
+                           }                
+
+                           for($i=1;$i<=ceil($numero_platillos[0]->numero_platillos/9);$i++)
                            {
-                               //echo'<li><a href="/'.($pagina-1).'">«</a></li>';
-                               echo '<a class="next page-numbers" href="/index/'.($pagina-1).'/'.$categoria.'"><i class="ti ti-arrow-left"></i></a>';
+                               if($i==$pagina)
+                               {
+                                   //echo'<li class="active"><a  href="/'.$i.'">'.$i.'</a></li>';
+                                   echo '<span class="page-numbers current"><a  href="/index/'.$i.'/">'.$i.'</a></span>';
+                               }
+                               else
+                               {
+                                   //echo'<li><a  href="/'.$i.'">'.$i.'</a></li>';
+                                    echo '<a class="page-numbers" href="/index/'.$i.'/">'.$i.'</a>';
+                               }
                            }
 
-                       }                
-
-                       for($i=1;$i<=ceil($numero_platillos[0]->numero_platillos/9);$i++)
-                       {
-                           if($i==$pagina)
+                           if($pagina<$paginacion)
                            {
-                               //echo'<li class="active"><a  href="/'.$i.'">'.$i.'</a></li>';
-                               echo '<span class="page-numbers current"><a  href="/index/='.$i.'/'.$categoria.'">'.$i.'</a></span>';
-
+                               //echo'<li><a href="/'.($pagina+1).'">»</a></li>';
+                                echo '<a class="next page-numbers" href="/index/'.($pagina+1).'/"><i class="ti ti-arrow-right"></i></a>';
                            }
-                           else
+                    }
+                    else
+                        {
+
+                           if($pagina>1)
                            {
-                               //echo'<li><a  href="/'.$i.'">'.$i.'</a></li>';
-                                echo '<a class="page-numbers" href="/index/'.$i.'/'.$categoria.'">'.$i.'</a>';
+                               if($pagina>$paginacion)
+                               {
+                                   //echo'<li><a href="/'.$paginacion.'">«</a></li>';
+                                   echo '<a class="next page-numbers" href="/index/'.$paginacion.'/'.$categoria.'"><i class="ti ti-arrow-left"></i></a>';
+                               }
+                               else
+                               {
+                                   //echo'<li><a href="/'.($pagina-1).'">«</a></li>';
+                                   echo '<a class="next page-numbers" href="/index/'.($pagina-1).'/'.$categoria.'"><i class="ti ti-arrow-left"></i></a>';
+                               }
+
+                           }                
+
+                           for($i=1;$i<=ceil($numero_platillos[0]->numero_platillos/9);$i++)
+                           {
+                               if($i==$pagina)
+                               {
+                                   //echo'<li class="active"><a  href="/'.$i.'">'.$i.'</a></li>';
+                                   echo '<span class="page-numbers current"><a  href="/index/'.$i.'/'.$categoria.'">'.$i.'</a></span>';
+
+                               }
+                               else
+                               {
+                                   //echo'<li><a  href="/'.$i.'">'.$i.'</a></li>';
+                                    echo '<a class="page-numbers" href="/index/'.$i.'/'.$categoria.'">'.$i.'</a>';
+                               }
+
                            }
 
-                       }
+                           if($pagina<$paginacion)
+                           {
+                               //echo'<li><a href="/'.($pagina+1).'">»</a></li>';
+                                echo '<a class="next page-numbers" href="/index/'.($pagina+1).'/'.$categoria.'"><i class="ti ti-arrow-right"></i></a>';
+                           }
 
-                       if($pagina<$paginacion)
-                       {
-                           //echo'<li><a href="/'.($pagina+1).'">»</a></li>';
-                            echo '<a class="next page-numbers" href="/index/'.($pagina+1).'/'.$categoria.'"><i class="ti ti-arrow-right"></i></a>';
-                       }
-                  
-                 }
+                        }
+                        
+                    }
+                      else
+                      {
+                           if($pagina>1)
+                           {
+                               if($pagina>$paginacion)
+                               {
+                                   //echo'<li><a href="/'.$paginacion.'">«</a></li>';
+                                   echo '<a class="next page-numbers" href="/index/'.$paginacion.'/'.$categoria.'/'.$buscar.'"><i class="ti ti-arrow-left"></i></a>';
+                               }
+                        else
+                               {
+                                   //echo'<li><a href="/'.($pagina-1).'">«</a></li>';
+                                   echo '<a class="next page-numbers" href="/index/'.($pagina-1).'/'.$categoria.'/'.$buscar.'"><i class="ti ti-arrow-left"></i></a>';
+                               }
+
+                           }                
+
+                           for($i=1;$i<=ceil($numero_platillos[0]->numero_platillos/9);$i++)
+                           {
+                               if($i==$pagina)
+                               {
+                                   //echo'<li class="active"><a  href="/'.$i.'">'.$i.'</a></li>';
+                                   echo '<span class="page-numbers current"><a  href="/index/'.$i.'/'.$categoria.'/'.$buscar.'">'.$i.'</a></span>';
+
+                               }
+                               else
+                               {
+                                   //echo'<li><a  href="/'.$i.'">'.$i.'</a></li>';
+                                    echo '<a class="page-numbers" href="/index/'.$i.'/'.$categoria.'/'.$buscar.'">'.$i.'</a>';
+                               }
+
+                           }
+
+                           if($pagina<$paginacion)
+                           {
+                               //echo'<li><a href="/'.($pagina+1).'">»</a></li>';
+                                echo '<a class="next page-numbers" href="/index/'.($pagina+1).'/'.$categoria.'/'.$buscar.'"><i class="ti ti-arrow-right"></i></a>';
+                           }
+                      }
+                    
                    ?>
                                 <!--<span class="page-numbers current">1</span>
                                 <a class="page-numbers" href="#">2</a>
@@ -207,9 +247,9 @@
             e.preventDefault();
             var cod = document.getElementById("buscar").value;
             //alert(cod);
-            var url = "/index/1/''/"+cod;
+            var url = "/index/1/''/" + cod;
             //alert(url);
-            location.href=url;
+            location.href = url;
             /*$.ajax({
                 method: "GET",
                 url: url,

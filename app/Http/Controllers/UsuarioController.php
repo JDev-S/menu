@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Hash;
 class UsuarioController extends Controller
 {
     public function usuarios_mostrar()
@@ -35,6 +36,7 @@ class UsuarioController extends Controller
         $nombre_usuario = $input['nombre_usuario'];
         $correo = $input['correo'];
         $contraseña = $input['contraseña'];
+        $encryptedPassword = bcrypt($contraseña);
         $telefono = $input['telefono'];
         $fecha_nacimiento = $input['fecha_nacimiento'];
         $sexo = $input['sexo'];
@@ -52,20 +54,20 @@ class UsuarioController extends Controller
         $tel_casa=$input['tel_casa'];
         $eliminado = 0;
         
-        //echo "aaaa".$decidir_direccion;
+       
         if($id_rol==2)
         {
                 if(empty($decidir_direccion))
             {
             //echo 'no se selecciono';
-             $query=DB::insert('insert into usuario (id_usuario, id_rol, nombre, apellidos, nombre_usuario, correo, contraseña, telefono, fecha_nacimiento, sexo, eliminado) values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [null, $id_rol, $nombre, $apellidos, $nombre_usuario, $correo, $contraseña, $telefono, $fecha_nacimiento, $sexo, $eliminado]);
+             $query=DB::insert('insert into usuario (id_usuario, id_rol, nombre, apellidos, nombre_usuario, correo, contraseña, telefono, fecha_nacimiento, sexo, eliminado) values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [null, $id_rol, $nombre, $apellidos, $nombre_usuario, $correo, $encryptedPassword, $telefono, $fecha_nacimiento, $sexo, $eliminado]);
             return redirect()->action('UsuarioController@usuarios_mostrar')->withInput();
                     
             }
             else
             {
                 //echo ' se selecciono';
-                $query=DB::insert('insert into usuario (id_usuario, id_rol, nombre, apellidos, nombre_usuario, correo, contraseña, telefono, fecha_nacimiento, sexo, eliminado) values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [null, $id_rol, $nombre, $apellidos, $nombre_usuario, $correo, $contraseña, $telefono, $fecha_nacimiento, $sexo, $eliminado]);
+                $query=DB::insert('insert into usuario (id_usuario, id_rol, nombre, apellidos, nombre_usuario, correo, contraseña, telefono, fecha_nacimiento, sexo, eliminado) values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [null, $id_rol, $nombre, $apellidos, $nombre_usuario, $correo, $encryptedPassword, $telefono, $fecha_nacimiento, $sexo, $eliminado]);
             
                 /*INGRESAR EN DIRECCIONES*/
                 $id_usuarios=DB::select('select id_usuario from usuario order by id_usuario desc limit 1');
@@ -74,13 +76,12 @@ class UsuarioController extends Controller
                 
                 $query2=DB::insert('INSERT INTO direccion (id_direccion, id_usuario, persona_recibe, colonia, calle, numero_interior, numero_exterior, cp, referencia, calleA, calleB, telefono, eliminado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [null, $id, $persona_recibe, $colonia, $calle, $numero_interior, $numero_exterior, $cp, $referencia, $calleA, $calleB, $tel_casa, $eliminado]);
                 return redirect()->action('UsuarioController@usuarios_mostrar')->withInput();
-               
                 
             }
         }
         else
         {
-              $query=DB::insert('insert into usuario (id_usuario, id_rol, nombre, apellidos, nombre_usuario, correo, contraseña, telefono, fecha_nacimiento, sexo, eliminado) values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [null, $id_rol, $nombre, $apellidos, $nombre_usuario, $correo, $contraseña, $telefono, $fecha_nacimiento, $sexo, $eliminado]);
+              $query=DB::insert('insert into usuario (id_usuario, id_rol, nombre, apellidos, nombre_usuario, correo, contraseña, telefono, fecha_nacimiento, sexo, eliminado) values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [null, $id_rol, $nombre, $apellidos, $nombre_usuario, $correo, $encryptedPassword, $telefono, $fecha_nacimiento, $sexo, $eliminado]);
             return redirect()->action('UsuarioController@usuarios_mostrar')->withInput();
         }
         
@@ -108,13 +109,20 @@ class UsuarioController extends Controller
         $telefono = $input['telefono'];
         $fecha_nacimiento = $input['fecha_nacimiento'];
         $sexo = $input['sexo'];
-        $eliminado =$input['eliminado'];
-        
-        
-        $query=DB::update("update usuario set id_rol='$id_rol', nombre='$nombre', apellidos='$apellidos', nombre_usuario='$nombre_usuario', correo='$correo', contraseña='$contrasenia', telefono='$telefono', fecha_nacimiento='$fecha_nacimiento', sexo='$sexo' where id_usuario=?",[$id_usuario]);
-        
-        
-        return redirect()->action('UsuarioController@usuarios_mostrar')->withInput();
+        $eliminado =$input['eliminado'];    
+        $query2=DB::select("SELECT usuario.contraseña FROM usuario WHERE correo='$correo'")
+		
+		if($query2[0]->contraseña==$password)
+		{
+			 $query=DB::update("update usuario set id_rol='$id_rol', nombre='$nombre', apellidos='$apellidos', nombre_usuario='$nombre_usuario', correo='$correo', telefono='$telefono', fecha_nacimiento='$fecha_nacimiento', sexo='$sexo' where id_usuario=?",[$id_usuario]);
+            
+            return redirect()->action('UsuarioController@usuarios_mostrar')->withInput();
+		}
+		else{
+			$encryptedPassword = bcrypt($contrasenia);
+			$query=DB::update("update usuario set id_rol='$id_rol', nombre='$nombre', apellidos='$apellidos', nombre_usuario='$nombre_usuario', correo='$correo', contraseña='$encryptedPassword', telefono='$telefono', fecha_nacimiento='$fecha_nacimiento', sexo='$sexo' where id_usuario=?",[$id_usuario]);
+			return redirect()->action('UsuarioController@usuario_mostrar')->withInput();
+		}
 	}
     
     public function iniciar_sesion(Request $input)
@@ -122,9 +130,7 @@ class UsuarioController extends Controller
         $correo = $input['correo'];
         $password = $input['password'];
         
-   
-    
-    $query = "select * from usuario where usuario.correo='$correo'";
+        $query = "select * from usuario where usuario.correo='$correo'";
         $data=DB::select($query);
         $cantidad= sizeof($data);
 
@@ -134,8 +140,8 @@ class UsuarioController extends Controller
             $data2=DB::select($query2);
 
             
-            //if (Hash::check($contrasenia, $data2[0]->contraseña)) {
-            if($password==$data2[0]->contraseña){
+            if (Hash::check($password, $data2[0]->contraseña)) {
+            //if($password==$data2[0]->contraseña){
            //echo 'essta registrado';
             //Session::put('nombre_usuario',$nombre_usuario);
             //Session::put('contraseña',$contrasenia);
@@ -149,14 +155,10 @@ class UsuarioController extends Controller
                 //return redirect('/iniciar_sesion');
                 echo 'No es la misma contraseña del usuario';
             }   
-
         }
         else{
             //return redirect('/iniciar_sesion');
             echo 'No existe ese usuario';
         }
     }
-        
-
-    
 }

@@ -31,17 +31,17 @@
                             </div>
                             <div class="col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <input name="telefono" type="text" placeholder="Numero telefonico" required="required" class="form-control with-grey-bg">
+                                    <input name="telefono" type="text" placeholder="Número telefonico" required="required" class="form-control with-grey-bg">
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <input name="correo" type="email" placeholder="Correo electronico" required="required" class="form-control with-grey-bg">
+                                    <input name="correo" type="email" placeholder="Correo electrónico" required="required" class="form-control with-grey-bg">
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <input name="tema" type="text" placeholder="Titulo del problema" required="required" class="form-control with-grey-bg">
+                                    <input name="tema" type="text" placeholder="Título del problema" required="required" class="form-control with-grey-bg">
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-12">

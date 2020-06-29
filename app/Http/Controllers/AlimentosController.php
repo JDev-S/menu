@@ -154,21 +154,23 @@ class AlimentosController extends Controller
                  $alimentos=DB::select("SELECT alimentos.id_alimento, categoria.id_categoria, alimentos.nombre_alimento,categoria.nombre_categoria,alimentos.tiempo_preparacion, alimentos.precio, alimentos.calorias,alimentos.fotografia_miniatura FROM alimentos inner join categoria on categoria.id_categoria=alimentos.id_categoria where alimentos.eliminado=0 and alimentos.disponible=1 and alimentos.id_categoria=$categoria limit $valor,9");
 
                  $numero_platillos=DB::select("select count(*)as numero_platillos from alimentos where id_categoria=$categoria");
-                 return view('/principal/index',compact('categorias','alimento_favoritos','alimentos','pagina','numero_platillos','categoria','buscar'));
+                 return view('/principal/index',compact('categorias','alimento_favoritos','alimentos','pagina','categoria','numero_platillos','buscar'));
             }
             else{
                  $alimentos=DB::select("SELECT alimentos.id_alimento, categoria.id_categoria, alimentos.nombre_alimento,categoria.nombre_categoria,alimentos.tiempo_preparacion, alimentos.precio, alimentos.calorias,alimentos.fotografia_miniatura FROM alimentos inner join categoria on categoria.id_categoria=alimentos.id_categoria where alimentos.eliminado=0 and alimentos.disponible=1 limit $valor,9");
 
                  $numero_platillos=DB::select('select count(*)as numero_platillos from alimentos');
-                 return view('/principal/index',compact('categorias','alimento_favoritos','alimentos','pagina','numero_platillos','buscar'));
+                 return view('/principal/index',compact('categorias','alimento_favoritos','alimentos','pagina','categoria','numero_platillos','buscar'));
             }
         }
         else{
-            $alimentos=DB::select("select alimentos.id_alimento, categoria.id_categoria,alimentos.nombre_alimento,categoria.nombre_categoria,alimentos.tiempo_preparacion,alimentos.precio,alimentos.calorias,alimentos.fotografia_miniatura from alimentos INNER JOIN categoria on categoria.id_categoria=alimentos.id_categoria where alimentos.eliminado=0 and alimentos.disponible=1 and alimentos.nombre_alimento like '%$buscar%'");
+            $categoria="''";
+            $alimentos=DB::select("select alimentos.id_alimento, categoria.id_categoria,alimentos.nombre_alimento,categoria.nombre_categoria,alimentos.tiempo_preparacion,alimentos.precio,alimentos.calorias,alimentos.fotografia_miniatura from alimentos INNER JOIN categoria on categoria.id_categoria=alimentos.id_categoria where alimentos.eliminado=0 and alimentos.disponible=1 and alimentos.nombre_alimento like '%$buscar%' limit $valor,9");
             $numero_platillos=DB::select("select count(*)as numero_platillos from alimentos where nombre_alimento like '%$buscar%'");
-            return view('/principal/index',compact('categorias','alimento_favoritos','alimentos','pagina','numero_platillos','buscar'));
+            return view('/principal/index',compact('categorias','alimento_favoritos','alimentos','pagina','categoria','numero_platillos','buscar'));
         }
     }
+    
     
     function info_platillo()
     {
