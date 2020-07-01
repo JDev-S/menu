@@ -149,3 +149,17 @@ Route::get('/admin_horario','HorarioController@horario_mostrar');
 
 //Route::get('/Admin_horario_editar','HorarioController@horario_editar')->middleware('admin:1')->name('Admin_horario_editar');
 Route::post('/admin_horario_editar','HorarioController@actualizar');
+
+/*PRUEBA CON PAYPAL*/
+// route for processing payment
+Route::post('paypal', 'PaymentController@payWithpaypal')->name('paypal');
+
+// route for check status of the payment
+Route::get('status', 'PaymentController@getPaymentStatus');
+
+
+/*Administrador favoritos*/
+Route::get('/admin_favoritos','FavoritosController@favoritos_mostrar');
+Route::post('/admin_favoritoseliminar','FavoritosController@eliminar');
+Route::post('/admin_favoritosingresar','FavoritosController@insertar');
+Route::post('/insertar_eliminar_favorito','FavoritosController@insertar_eliminar')->name('insertar_eliminar_favorito');

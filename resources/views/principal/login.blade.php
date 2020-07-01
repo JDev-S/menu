@@ -26,7 +26,7 @@
 
                             <div class="col-sm-6 col-md-12">
                                 <div class="form-group">
-                                    <input name="correo" type="email" placeholder="Correo electronico" required="required" class="form-control with-grey-bg">
+                                    <input name="correo" type="text" placeholder="Nombre del usuario" required="required" class="form-control with-grey-bg">
                                 </div>
                             </div>
 
@@ -44,6 +44,10 @@
                                 </div>
                             </div>
                         </form>
+                        <!--<form method="POST" action={{route('paypal')}}>
+                        {{ csrf_field() }}
+                        <input type="submit" value="Pagar con paypal">
+                        </form>-->
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -67,7 +71,7 @@
                                             <!-- featured-content -->
                                             <div class="featured-title">
                                                 <!-- featured-title -->
-                                                <h4>Address</h4>
+                                                <h4>Dirección</h4>
                                             </div>
                                             <div class="featured-desc">
                                                 <!-- featured-desc -->
@@ -89,7 +93,7 @@
                                             <!-- featured-content -->
                                             <div class="featured-title">
                                                 <!-- featured-title -->
-                                                <h4>Call-Us</h4>
+                                                <h4>Llamanos</h4>
                                             </div>
                                             <div class="featured-desc">
                                                 <!-- featured-desc -->
@@ -111,7 +115,7 @@
                                             <!-- featured-content -->
                                             <div class="featured-title">
                                                 <!-- featured-title -->
-                                                <h4>Email</h4>
+                                                <h4>Correo eléctronico</h4>
                                             </div>
                                             <div class="featured-desc">
                                                 <!-- featured-desc -->

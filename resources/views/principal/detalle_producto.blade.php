@@ -43,8 +43,19 @@
                                 </form>
                                 <div class="add-to-wishlist yith-wcwl-add-to-wishlist">
                                     <ul>
-                                        <li><a href="#"><i class="fa fa-heart-o"></i>Agregar a favoritos</a></li>
+                                        <!--<li><a href="#"><i class="fa fa-heart-o"></i>Agregar a favoritos</a></li>-->
+                                        <input type="hidden" value="{{$info[0]->id_alimento}}" id="id_alimento" name="id_alimento">
+                                        <?php
+                                        if(empty($favoritos))
+                                        {
+                                           echo' <li class="fa fa-heart-o">Agregar a favoritos <input type="checkbox" id="favorito" name="favorito"> </li>';
+                                        }
+                                        else
+                                        {
+                                            echo '<li class="fa fa-heart-o">Agregar a favoritos<input type="checkbox" id="favorito" name="favorito" checked> </li>';
+                                        }
                                         
+                                        ?>
                                     </ul>
                                 </div>
                                 <div class="product_meta">
@@ -113,8 +124,8 @@
                                     <span class="product-title">{{$vendido->nombre_alimento}}</span>
                                 </a>
                                 <div class="ttm-ratting-star">
-                                     <span class="product-Price-amount amount"><span class="product-Price-currencySymbol">Categoria : </span>{{$vendido->nombre_categoria}}</span>
-                                   
+                                    <span class="product-Price-amount amount"><span class="product-Price-currencySymbol">Categoria : </span>{{$vendido->nombre_categoria}}</span>
+
                                 </div>
                                 <span class="product-Price-amount amount"><span class="product-Price-currencySymbol">$</span>{{$vendido->precio}}</span>
                             </li>
@@ -151,5 +162,57 @@
 
 
 </div>
+@section('scripts')
+<script>
+    $(document).on('change', 'input[type="checkbox"]', function(e) {
+        if (this.id == "favorito") {
+            //document.getElementById('direccion').innerHTML = ''
+            var mensaje = "";
+            if (this.checked) {
+                //var cod = document.getElementById("favorito").value;
+                var id_alimento = document.getElementById("id_alimento").value;
+                alert(id_alimento);
+                var token = '{{csrf_token()}}';
+                var data = {
+                    id_alimento: id_alimento,
+                    _token: token
+                };
 
+                $.ajax({
+                    type: "POST",
+                    url: "/insertar_eliminar_favorito",
+                    data: data,
+                    success: function(msg) {
+                        //datos_datatable.remove();
+                        //$('#deleteModal').modal('hide');
+                        alert("SE INGRESO CORRECTAMENTE A FAVORITOS");
+                    }
+                });
+
+            } else {
+                var id_alimento = document.getElementById("id_alimento").value;
+                alert("Nooooooo");
+                var token = '{{csrf_token()}}';
+                var data = {
+                    id_alimento: id_alimento,
+                    _token: token
+                };
+
+                $.ajax({
+                    type: "POST",
+                    url: "/insertar_eliminar_favorito",
+                    data: data,
+                    success: function(msg) {
+                        alert("SE ELIMINO CORRECTAMENTE A FAVORITOS");
+                        //datos_datatable.remove();
+                        //$('#deleteModal').modal('hide');
+                    }
+                });
+            }
+        }
+
+    });
+
+</script>
+@stop
 @stop
