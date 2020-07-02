@@ -163,3 +163,8 @@ Route::get('/admin_favoritos','FavoritosController@favoritos_mostrar');
 Route::post('/admin_favoritoseliminar','FavoritosController@eliminar');
 Route::post('/admin_favoritosingresar','FavoritosController@insertar');
 Route::post('/insertar_eliminar_favorito','FavoritosController@insertar_eliminar')->name('insertar_eliminar_favorito');
+
+
+/*CARRITO DE COMPRA*/
+
+Route::post('/insertar_carrito','Detalle_ventaController@insertar_carrito')->name('insertar_carrito');

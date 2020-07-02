@@ -35,12 +35,12 @@
                                 <div class="product-details__short-description">
                                     <p>{{$info[0]->descripcion}}.</p>
                                 </div>
-                                <form class="cart" action="#" method="post" enctype="multipart/form-data">
-                                    <div class="quantity"><label class="screen-reader-text">Cantidad</label>
-                                        <input type="number" id="quantity" class="form-control qty text" step="1" min="1" max="50" name="quantity" value="1" title="Qty">
-                                    </div>
-                                    <button id="go" name="add-to-cart" type="submit" class="cart_button ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-bgcolor-darkgrey" title="Submit now">Agregar al carro</button>
-                                </form>
+
+                                <div class="quantity"><label class="screen-reader-text">Cantidad</label>
+                                    <input type="number" id="cantidad" class="form-control qty text" step="1" min="1" max="50" name="cantidad" value="1" title="Qty">
+                                </div>
+                                <button id="go" name="add-to-cart" type="submit" class="cart_button ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-bgcolor-darkgrey" title="Agregar ahora" onclick="agregar()">Agregar al carro</button>
+
                                 <div class="add-to-wishlist yith-wcwl-add-to-wishlist">
                                     <ul>
                                         <!--<li><a href="#"><i class="fa fa-heart-o"></i>Agregar a favoritos</a></li>-->
@@ -77,38 +77,38 @@
                         <h3>Platillos nuevos</h3>
                         <div class="row">
                             @foreach($ultimos as $ultimo)
-                            <div class="col-lg-4 col-md-4 col-sm-6">
+                            <!--<div class="col-lg-4 col-md-4 col-sm-6">
                                 <div class="product">
-                                    <!-- product -->
+                                  
                                     <div class="product-thumbnail">
-                                        <!-- product-thumbnail -->
+                                       
                                         <img class="img-fluid w-100" src='{{$ultimo->fotografia_miniatura}}' alt="">
                                         <div class="ttm-shop-icon">
-                                            <!-- ttm-shop-icon -->
+                                            
                                             <div class="product-btn"><a href="#" class="add-to-cart-btn"><i class="ti ti-heart"></i></a></div>
                                             <div class="product-btn"><a href="#" class="search-btn"><i class="ti ti-search"></i></a></div>
                                             <div class="product-btn"><a href="#" class="cart-btn"><i class="ti ti-shopping-cart"></i></a></div>
                                         </div>
-                                    </div><!-- product-thumbnail end -->
+                                    </div>
                                     <div class="product-content text-center">
-                                        <!-- product-content -->
+                                       
                                         <div class="product-title">
-                                            <!-- product-title -->
+                                     
                                             <h2><a href='/detalle_producto?platillo={{$ultimo->id_alimento}}'>{{$ultimo->nombre_alimento}}</a></h2>
                                         </div>
                                         <div class="ttm-ratting-star">
                                             <span class="product-price">
-                                                <!-- product-Price -->
+                                              
                                                 <span class="product-Price-currencySymbol">Categoria</span>{{$ultimo->nombre_categoria}}
                                             </span>
                                         </div>
                                         <span class="product-price">
-                                            <!-- product-Price -->
+                                            
                                             <span class="product-Price-currencySymbol">$</span>{{$ultimo->precio}}
                                         </span>
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
                             @endforeach
 
                         </div>
@@ -212,6 +212,39 @@
         }
 
     });
+
+</script>
+
+<script>
+    function agregar() {
+        alert("ENTRO AL METODO");
+        var cantidad = document.getElementById("cantidad").value;
+         var id_alimento = document.getElementById("id_alimento").value;
+         document.getElementById('carrito').innerHTML = ''
+        alert(cantidad);
+        /*OBTENER EL USUARIO*/
+        var id_usuario = 13;
+        var token = '{{csrf_token()}}';
+        var data = {
+            id_usuario: id_usuario,
+            id_alimento: id_alimento,
+            cantidad: cantidad,
+            _token: token
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "/insertar_carrito",
+            data: data,
+            success: function(msg) {
+                var datos = JSON.parse(msg);
+                alert(datos);
+                
+                document.getElementById('carrito').innerHTML = datos
+            }
+        });
+
+    }
 
 </script>
 @stop

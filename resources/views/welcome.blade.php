@@ -76,7 +76,7 @@
                                     <div class="ttm-header-icons ">
                                         <span class="ttm-header-icon ttm-header-cart-link">
                                             <a href="#"><i class="ti ti-shopping-cart"></i>
-                                                <span class="number-cart">0</span>
+                                                <span class="number-cart" id="carrito" name="carrito"></span>
                                             </a>
                                         </span>
                                         <div class="ttm-header-icon ttm-header-search-link">

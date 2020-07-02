@@ -190,18 +190,23 @@ class AlimentosController extends Controller
             alimentos.eliminado=0 and alimentos.disponible=1 GROUP by(alimentos.id_alimento) ORDER by COUNT(detalle_venta.id_alimento) desc LIMIT 4');
 
             /*Ultimos comprados por el usuario*/
-            $compras=DB::select('select alimentos.id_alimento,                       categoria.id_categoria,alimentos.nombre_alimento,categoria.nombre_categoria,alimentos.tiempo_preparacion,alimentos. precio,
+            /*$compras=DB::select('select alimentos.id_alimento,                       categoria.id_categoria,alimentos.nombre_alimento,categoria.nombre_categoria,alimentos.tiempo_preparacion,alimentos. precio,
             alimentos.calorias,alimentos.fotografia_miniatura from usuario inner join detalle_venta on usuario.id_usuario=detalle_venta.id_usuario inner join
             alimentos on alimentos.id_alimento=detalle_venta.id_alimento INNER JOIN categoria on categoria.id_categoria=alimentos.id_categoria where
-            alimentos.eliminado=0 and alimentos.disponible=1 and usuario.id_usuario=13 LIMIT 4; ');
+            alimentos.eliminado=0 and alimentos.disponible=1 and usuario.id_usuario=13 LIMIT 4; ');*/
 
-            $ultimos=DB::select('select alimentos.id_alimento, categoria.id_categoria,alimentos.nombre_alimento,categoria.nombre_categoria,alimentos.tiempo_preparacion,alimentos.precio,alimentos.calorias,alimentos.fotografia_miniatura from alimentos INNER JOIN categoria on categoria.id_categoria=alimentos.id_categoria where alimentos.eliminado=0 and alimentos.disponible=1 ORDER by(alimentos.id_alimento) desc LIMIT 3');
+           /* $ultimos=DB::select('select alimentos.id_alimento, categoria.id_categoria,alimentos.nombre_alimento,categoria.nombre_categoria,alimentos.tiempo_preparacion,alimentos.precio,alimentos.calorias,alimentos.fotografia_miniatura from alimentos INNER JOIN categoria on categoria.id_categoria=alimentos.id_categoria where alimentos.eliminado=0 and alimentos.disponible=1 ORDER by(alimentos.id_alimento) desc LIMIT 3');*/
             
             //Saber si el usuario esta logueado para obtener el 
             $id_usuario=13;
             $favoritos=DB::select('select favoritos.id_usuario, favoritos.id_alimento from favoritos where favoritos.id_usuario='.$id_usuario.' and favoritos.id_alimento='.$id_platillo);
+            
+             $ultimos=DB::select('select favoritos.id_usuario, favoritos.id_alimento from favoritos where favoritos.id_usuario='.$id_usuario.' and favoritos.id_alimento='.$id_platillo);
+            
+            $compras=DB::select('select favoritos.id_usuario, favoritos.id_alimento from favoritos where favoritos.id_usuario='.$id_usuario.' and favoritos.id_alimento='.$id_platillo);
 
-            return view('/principal/detalle_producto',compact('info','imagenes','vendidos','compras','ultimos','favoritos'));
+            //return view('/principal/detalle_producto',compact('info','imagenes','vendidos','compras','ultimos','favoritos'));
+            return view('/principal/detalle_producto',compact('info','imagenes','vendidos','favoritos','ultimos','compras'));
         }
         catch(Exception $e)
         {
