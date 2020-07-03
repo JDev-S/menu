@@ -81,4 +81,46 @@ class Detalle_ventaController extends Controller
 		return response()->json($json);
         
     }
+    
+    public function mostrar_carrito_compra()
+    {
+        $id_usuario=13;
+        $carrito_compras=DB::select('select * from usuario INNER join carrito_compras on usuario.id_usuario=carrito_compras.id_usuario inner join alimentos on alimentos.id_alimento=carrito_compras.id_alimento where usuario.id_usuario='.$id_usuario);
+        
+        $totales=DB::select('select id_usuario, sum(alimentos.precio* carrito_compras.cantidad) as total from carrito_compras inner join alimentos on carrito_compras.id_alimento=alimentos.id_alimento where id_usuario ='.$id_usuario);
+          
+		return view('/principal/carrito',compact('carrito_compras','totales'));
+    }
+    
+    public function eliminar_platillo(Request $input)
+    {
+     
+        $id_usuario=$input['id_usuario'];
+        $id_alimento=$input['id_alimento'];
+        
+        $query=DB::delete("DELETE FROM carrito_compras WHERE id_usuario='$id_usuario' and id_alimento='$id_alimento'");
+		//$query=DB::delete("DELETE from carrito_compras where id_usuario = $id_usuario and id_alimento = $id_alimento");
+		//return redirect()->action('Detalle_ventaController@detalle_ventas_mostrar')->withInput();
+        
+        return redirect()->action('Detalle_ventaController@mostrar_carrito_compra')->withInput();
+    }
+    
+    public function actualizar_carrito(Request $input)
+    {
+        $id_usuario=$input['id_usuario'];
+        $id_alimento=$input['id_alimento'];
+        $cantidad=$input['cantidad'];
+        
+         $query=DB::update("update carrito_compras set cantidad='$cantidad' where id_usuario=? and id_alimento=?",[$id_usuario,$id_alimento]);
+        
+        return redirect()->action('Detalle_ventaController@mostrar_carrito_compra')->withInput();
+    }
+    
+    public function checar()
+    {
+        $id_usuario=13;
+        $direcciones=DB::select("select * from direccion where id_usuario =$id_usuario");
+        return view('/principal/checar',compact('direcciones'));
+        
+    }
 }

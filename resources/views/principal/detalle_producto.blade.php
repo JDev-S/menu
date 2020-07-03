@@ -219,8 +219,7 @@
     function agregar() {
         alert("ENTRO AL METODO");
         var cantidad = document.getElementById("cantidad").value;
-         var id_alimento = document.getElementById("id_alimento").value;
-         document.getElementById('carrito').innerHTML = ''
+        var id_alimento = document.getElementById("id_alimento").value;
         alert(cantidad);
         /*OBTENER EL USUARIO*/
         var id_usuario = 13;
@@ -239,8 +238,6 @@
             success: function(msg) {
                 var datos = JSON.parse(msg);
                 alert(datos);
-                
-                document.getElementById('carrito').innerHTML = datos
             }
         });
 

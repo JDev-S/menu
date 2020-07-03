@@ -75,8 +75,12 @@
                                     <!-- header-icons -->
                                     <div class="ttm-header-icons ">
                                         <span class="ttm-header-icon ttm-header-cart-link">
-                                            <a href="#"><i class="ti ti-shopping-cart"></i>
-                                                <span class="number-cart" id="carrito" name="carrito"></span>
+                                            <a href="/carrito_compra"><i class="ti ti-shopping-cart"></i>
+                                                <?php 
+                                                $id_usuario=13;
+                                                $cantidades=DB::select("select sum(cantidad)as cantidad from carrito_compras where id_usuario=$id_usuario");
+                                                echo '<span class="number-cart" id="carrito" name="carrito">'.$cantidades[0]->cantidad.'</span>';
+                                                ?>
                                             </a>
                                         </span>
                                         <div class="ttm-header-icon ttm-header-search-link">
@@ -97,7 +101,7 @@
                                         </div>
                                     </div><!-- header-icons end -->
                                     <div class="header-btn">
-                                        <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-skincolor" href="#">ORDER ONLINE</a>
+                                        <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-skincolor" href="/carrito_compra">Ordenar ahora</a>
                                     </div>
                                     <div class="ttm-menu-toggle">
                                         <input type="checkbox" id="menu-toggle-form">
