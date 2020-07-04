@@ -174,3 +174,6 @@ Route::get('/carrito_compra','Detalle_ventaController@mostrar_carrito_compra');
 Route::post('/eliminar_platillo','Detalle_ventaController@eliminar_platillo')->name('eliminar_platillo');
 Route::post('/actualizar_carrito','Detalle_ventaController@actualizar_carrito')->name('actualizar_carrito');
 Route::get('/checar','Detalle_ventaController@checar');
+
+Route::post('/ingresar_direccion','Detalle_ventaController@ingresar_direccion')->name('ingresar_direccion');
+Route::post('/ingresar_mesa','Detalle_ventaController@ingresar_mesa')->name('ingresar_mesas');

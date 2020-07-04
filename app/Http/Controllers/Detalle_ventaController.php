@@ -123,4 +123,28 @@ class Detalle_ventaController extends Controller
         return view('/principal/checar',compact('direcciones'));
         
     }
+    
+    
+        public function ingresar_direccion(Request $input)
+	{
+        $persona_recibe=$input['persona_recibe'];
+        $colonia=$input['colonia'];
+        $calle=$input['calle'];
+        $numero_interior=$input['numero_interior'];
+        $numero_exterior=$input['numero_exterior'];
+        $cp=$input['cp'];
+        $referencia=$input['referencia'];
+        $calleA=$input['calleA'];
+        $calleB=$input['calleB'];
+        $tel_casa=$input['telefono'];
+        $id_usuario=$input['id_usuario'];
+        $eliminado = 0;
+        
+        $query2=DB::insert('INSERT INTO direccion (id_direccion, id_usuario, persona_recibe, colonia, calle, numero_interior, numero_exterior, cp, referencia, calleA, calleB, telefono, eliminado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [null, $id_usuario, $persona_recibe, $colonia, $calle, $numero_interior, $numero_exterior, $cp, $referencia, $calleA, $calleB, $tel_casa, $eliminado]);
+                
+
+         return redirect()->action('Detalle_ventaController@checar')->withInput();
+    }
+    
+   
 }
